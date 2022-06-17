@@ -131,7 +131,8 @@ namespace FFEditor
 		string GetModelSuffix()
 		{
 			var modelNameOnly = assetPath.Split( '/' ).Last();
-			var modelSuffix = modelNameOnly.Split( '_' ).Last().Split( '.' ).First(); // Also remove extension.
+			// Info: Skip the last (actual) suffix: It is the version number (for example; _v3).
+			var modelSuffix = modelNameOnly.Split( '_' ).Reverse().Skip( 1 ).Take( 1 ).First();
 			return modelSuffix;
 		}
 		
