@@ -6,6 +6,7 @@ using UnityEngine;
 using FFStudio;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using UnityEditor;
 
 public class GoonMovement : MovementPath
 {
@@ -79,6 +80,23 @@ public class GoonMovement : MovementPath
 
 #region Editor Only
 #if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        for( var i = 0; i < path_points.Count; i++ )
+        {
+			// Draw Spheres on every path point
+			Gizmos.DrawWireSphere( path_points[ i ].position, 0.15f );
+
+			// Label Every path point
+			Handles.Label( path_points[ i ].position, path_parent.name + ": " + i );
+		}
+
+        // Draw line between every point
+        for( var i = 0; i < path_points.Count - 1; i++ )
+        {
+			Handles.DrawDottedLine( path_points[ i ].position, path_points[ i + 1 ].position, 10 );
+		}
+    }
 #endif
 #endregion
 }
