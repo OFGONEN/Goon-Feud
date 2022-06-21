@@ -6,6 +6,6 @@ using UnityEngine;
 using FFStudio;
 
 [ CreateAssetMenu( fileName = "set_player_path", menuName = "FF/Data/Set/Player Path" ) ]
-public class SetPath : RuntimeSet< int, List< Vector3[] > >
+public class SetPath : RuntimeSet< int, List< Transform > >
 {
 }
