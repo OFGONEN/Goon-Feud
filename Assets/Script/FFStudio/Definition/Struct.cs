@@ -189,4 +189,24 @@ namespace FFStudio
         
         public float value;
     }
+	
+	[ Serializable ]
+	public struct StageData
+	{
+		public Question[] stage_question;
+	}
+
+	[ Serializable ]
+	public struct Question
+	{
+		public string question;
+		public AnswerData[] question_answer;
+	}
+
+	[ Serializable ]
+	public struct AnswerData
+	{
+		public string answer;
+		public int answer_value;
+	}
 }
