@@ -82,7 +82,9 @@ public class GoonMovement : MovementPath
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        for( var i = 0; i < path_points.Count; i++ )
+		Gizmos.color  = Color.red;
+		Handles.color = Color.red;
+		for( var i = 0; i < path_points.Count; i++ )
         {
 			// Draw Spheres on every path point
 			Gizmos.DrawWireSphere( path_points[ i ].position, 0.15f );
