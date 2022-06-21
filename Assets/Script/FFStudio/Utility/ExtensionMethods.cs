@@ -387,7 +387,12 @@ namespace FFStudio
 			return array[ Random.Range( 0, array.Length ) ];
 		}
 
-				public static float ReturnRandom( this Vector2 vector )
+		public static T ReturnLastIndex< T >( this T[] array )
+		{
+			return array[ array.Length - 1 ];
+		}
+
+		public static float ReturnRandom( this Vector2 vector )
 		{
 			return Random.Range( vector.x, vector.y );
 		}
