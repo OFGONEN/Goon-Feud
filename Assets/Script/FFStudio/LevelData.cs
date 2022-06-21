@@ -14,6 +14,7 @@ namespace FFStudio
 	[ Title( "Setup" ) ]
 		[ ValueDropdown( "SceneList" ), LabelText( "Scene Index" ) ] public int scene_index;
         [ LabelText( "Override As Active Scene" ) ] public bool scene_overrideAsActiveScene;
+		[ LabelText( "Stage Data" ) ] public StageData[] stage_data;
 
 #if UNITY_EDITOR
 		private static IEnumerable SceneList()
