@@ -209,4 +209,11 @@ namespace FFStudio
 		public string answer;
 		public int answer_value;
 	}
+
+	[ Serializable ]
+	public struct AnimatorRandom_Integer
+	{
+		public string parameter_name;
+		public int parameter_max;
+	}
 }
