@@ -49,12 +49,34 @@ public class GoonMovement : MovementPath
 
 		var sequence = recycledSequence.Recycle();
 
-		sequence.Append( transform.DORotate( targetTransform.rotation.eulerAngles,
+		sequence.Append( movement_transform.DORotate( targetTransform.rotation.eulerAngles,
 			GameSettings.Instance.goon_movement_rotate_speed )
 			.SetEase( Ease.Linear )
 			.SetSpeedBased() );
 
-		sequence.Join( transform.DOMove( targetTransform.position,
+		sequence.Join( movement_transform.DOMove( targetTransform.position,
+			GameSettings.Instance.goon_movement_move_speed )
+			.SetEase( Ease.Linear )
+			.SetSpeedBased() );
+
+		sequence.OnComplete( OnPathComplete );
+	}
+
+	public void DoPathLastPoint( UnityMessage pathComplete )
+	{
+		onPathComplete = pathComplete; // Cache the method
+		path_index     = path_points.Count - 1;
+
+		var targetTransform = path_points[ path_points.Count - 1 ];
+
+		var sequence = recycledSequence.Recycle();
+
+		sequence.Append( movement_transform.DORotate( targetTransform.rotation.eulerAngles,
+			GameSettings.Instance.goon_movement_rotate_speed )
+			.SetEase( Ease.Linear )
+			.SetSpeedBased() );
+
+		sequence.Join( movement_transform.DOMove( targetTransform.position,
 			GameSettings.Instance.goon_movement_move_speed )
 			.SetEase( Ease.Linear )
 			.SetSpeedBased() );
