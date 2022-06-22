@@ -11,4 +11,5 @@ namespace FFStudio
 	public delegate void UnityMessage();
 	public delegate void LeanFingerDelegate( LeanFinger finger );
 	public delegate void ParticleEffectStopped( ParticleEffect effect );
+	public delegate void DrawShape( Camera cam );
 }
