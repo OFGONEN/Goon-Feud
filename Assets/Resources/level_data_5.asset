@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea3c0b9fd00fd441b6cebc5941ee13b, type: 3}
+  m_Name: level_data_5
+  m_EditorClassIdentifier: 
+  scene_index: 1
+  scene_overrideAsActiveScene: 0
+  stage_data:
+  - stage_question:
+    - question: Name Something a Naughty Kid Does to Santa
+      question_answer:
+      - answer: Pull His Beard
+        answer_value: 42
+      - answer: Kick
+        answer_value: 27
+      - answer: Bite
+        answer_value: 36
+      - answer: Farts on Him
+        answer_value: 26
+    - question: Name a Country With a Large Population
+      question_answer:
+      - answer: Brazil
+        answer_value: 14
+      - answer: United States
+        answer_value: 25
+      - answer: India
+        answer_value: 27
+      - answer: China
+        answer_value: 52
+    - question: Name a Type of Building Where It Always Seems to Be Cold
+      question_answer:
+      - answer: Doctor Office
+        answer_value: 44
+      - answer: Work
+        answer_value: 27
+      - answer: Class Room
+        answer_value: 24
+      - answer: Hotel Room
+        answer_value: 21
+    - question: Name Something People Do to Their Armpits
+      question_answer:
+      - answer: Make Noise Fart
+        answer_value: 17
+      - answer: Wash Them
+        answer_value: 23
+      - answer: Put Deodorant
+        answer_value: 25
+      - answer: Shave
+        answer_value: 62
+  - stage_question:
+    - question: Name an Animal a Snake Can Swallow Whole
+      question_answer:
+      - answer: Mouse
+        answer_value: 70
+      - answer: Crocodile
+        answer_value: 15
+      - answer: Rabbit
+        answer_value: 13
+      - answer: Pig
+        answer_value: 4
+    - question: What do you do when you first wake up?
+      question_answer:
+      - answer: Brush Teeth
+        answer_value: 31
+      - answer: Make Coffee
+        answer_value: 29
+      - answer: Check Phone
+        answer_value: 32
+      - answer: Take a Shower
+        answer_value: 22
+    - question: What is the most popular name for your pet dog?
+      question_answer:
+      - answer: Spot
+        answer_value: 30
+      - answer: Lucky
+        answer_value: 35
+      - answer: Buddy
+        answer_value: 22
+      - answer: Rex
+        answer_value: 20
+    - question: What is the best place for someone to study?
+      question_answer:
+      - answer: Coffee Shop
+        answer_value: 13
+      - answer: Bedroom
+        answer_value: 25
+      - answer: Classroom
+        answer_value: 28
+      - answer: Library
+        answer_value: 34
+    - question: What snacks do you usually eat at the movies?
+      question_answer:
+      - answer: Popcorn
+        answer_value: 51
+      - answer: Nachos
+        answer_value: 23
+      - answer: Chips
+        answer_value: 21
+      - answer: Candies
+        answer_value: 8
+  - stage_question:
+    - question: Name a reason you would go to the park
+      question_answer:
+      - answer: Walk the Dog
+        answer_value: 34
+      - answer: Picnic
+        answer_value: 34
+      - answer: Run
+        answer_value: 30
+      - answer: Take the Kids
+        answer_value: 17
+    - question: What do people usually take with them to the beach?
+      question_answer:
+      - answer: Towel
+        answer_value: 34
+      - answer: Umbrella
+        answer_value: 27
+      - answer: Beach Ball
+        answer_value: 20
+      - answer: Hat
+        answer_value: 27
+    - question: Name something people wished their pets could do
+      question_answer:
+      - answer: Make No Noise
+        answer_value: 17
+      - answer: Help out with Costs
+        answer_value: 22
+      - answer: Use the Toilet
+        answer_value: 37
+      - answer: Talk
+        answer_value: 45
+    - question: What do kids usually hate to do?
+      question_answer:
+      - answer: Go to School
+        answer_value: 31
+      - answer: Chores
+        answer_value: 33
+      - answer: Eat Vegetables
+        answer_value: 32
+      - answer: Visit Relatives
+        answer_value: 17
