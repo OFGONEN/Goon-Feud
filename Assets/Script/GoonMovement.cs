@@ -24,6 +24,7 @@ public class GoonMovement : MovementPath
 
 #region Properties
     public int PathIndex => path_index;
+    public int PathCount => path_points.Count;
     public bool CanPath => path_index < path_points.Count;
 #endregion
 
