@@ -14,6 +14,7 @@ public class Goon : MonoBehaviour
     [ LabelText( "ID of the Goon in current Stage" ), BoxGroup( "Setup" ), SerializeField ] int goon_id;
     [ LabelText( "Health Count" ), BoxGroup( "Setup" ), SerializeField ] int goon_health;
 
+    [ BoxGroup( "Shared Variables" ), SerializeField ] SharedIntNotifier notif_player_stage_index;
     [ BoxGroup( "Shared Variables" ), SerializeField ] SetGoon set_stage_goon;
     [ BoxGroup( "Shared Variables" ), SerializeField ] GameEvent event_player_killed;
 
@@ -37,15 +38,19 @@ public class Goon : MonoBehaviour
 
 	private void Awake()
 	{
-		onDoPath = DoPath;
+		onDoPath = ExtensionMethods.EmptyMethod;
 	}
 #endregion
 
 #region API
     public void OnStageStart()
     {
-		set_stage_goon.AddDictionary( goon_id, this );
-		onDoPath();
+		if( notif_player_stage_index.SharedValue == goon_stage_id )
+		{
+			onDoPath = DoPath;
+			set_stage_goon.AddDictionary( goon_id, this );
+			onDoPath();
+		}
 	}
 
     public void OnStageContinue()
