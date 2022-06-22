@@ -84,6 +84,11 @@ public class GoonMovement : MovementPath
 
 		sequence.OnComplete( OnPathComplete );
 	}
+
+	public Vector3 GetPathPoint( int index )
+	{
+		return path_points[ index ].position;
+	}
 #endregion
 
 #region Implementation
