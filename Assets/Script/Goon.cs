@@ -20,6 +20,7 @@ public class Goon : MonoBehaviour
 
     [ BoxGroup( "Component" ), SerializeField ] Animator goon_animator;
     [ BoxGroup( "Component" ), SerializeField ] GoonMovement goon_movement;
+    [ BoxGroup( "Component" ), SerializeField ] GoonLine goon_line;
 
     RecycledTween recycledTween = new RecycledTween();
 
@@ -34,6 +35,8 @@ public class Goon : MonoBehaviour
     {
 		EmptyDelegates();
 		recycledTween.Kill();
+
+		goon_line.StopDraw();
 	}
 
 	private void Awake()
@@ -50,6 +53,8 @@ public class Goon : MonoBehaviour
 			onDoPath = DoPath;
 			set_stage_goon.AddDictionary( goon_id, this );
 			onDoPath();
+
+			goon_line.StartDraw();
 		}
 	}
 
@@ -81,7 +86,8 @@ public class Goon : MonoBehaviour
 		EmptyDelegates();
 		set_stage_goon.RemoveDictionary( goon_id );
 		goon_animator.SetTrigger( "die" );
-    }
+		goon_line.StopDraw();
+	}
 
     void OnPathComplete()
     {
