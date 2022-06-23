@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mat_atlas
-    second: {fileID: 2100000, guid: a2829df0bfae7214390d3aa9dcc77c64, type: 2}
+    second: {fileID: 2100000, guid: c36c5689f5388425e8088397111ba7a8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mat_barrel
-    second: {fileID: 2100000, guid: a2829df0bfae7214390d3aa9dcc77c64, type: 2}
+    second: {fileID: 2100000, guid: c36c5689f5388425e8088397111ba7a8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
