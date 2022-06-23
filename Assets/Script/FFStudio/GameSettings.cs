@@ -10,6 +10,15 @@ namespace FFStudio
 #region Fields (Settings)
     // Info: Use Title() attribute ONCE for every game-specific group of settings.
 
+  [ Title( "Player" ) ]
+        public float player_movement_move_speed;
+        public float player_movement_rotate_speed;
+
+  [ Title( "Goon" ) ]
+        public float goon_movement_move_speed;
+        public float goon_movement_rotate_speed;
+        public float goon_hit_delay;
+
     // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;
         [ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_Components;

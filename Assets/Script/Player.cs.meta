@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 326acdaa4f813074da6249c6f06a2604
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - notif_player_stage_index: {fileID: 11400000, guid: b31ba918ab7ee314aa9c70b713e9d8d3, type: 2}
+  - event_stage_start: {fileID: 11400000, guid: a3a9d11e17938924ba3eeadc225baed0, type: 2}
+  - player_movement: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

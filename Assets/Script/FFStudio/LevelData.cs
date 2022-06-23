@@ -14,6 +14,9 @@ namespace FFStudio
 	[ Title( "Setup" ) ]
 		[ ValueDropdown( "SceneList" ), LabelText( "Scene Index" ) ] public int scene_index;
         [ LabelText( "Override As Active Scene" ) ] public bool scene_overrideAsActiveScene;
+		[ LabelText( "Stage Data" ) ] public StageData[] stage_data;
+
+		[ LabelText( "Stage Count " ), ReadOnly ] public int stage_count;
 
 #if UNITY_EDITOR
 		private static IEnumerable SceneList()
@@ -26,6 +29,11 @@ namespace FFStudio
 				list.Add( Path.GetFileNameWithoutExtension( SceneUtility.GetScenePathByBuildIndex( i ) ) + $" ({i})", i );
 
 			return list;
+		}
+
+		private void OnValidate()
+		{
+			stage_count = stage_data.Length;
 		}
 #endif
     }
