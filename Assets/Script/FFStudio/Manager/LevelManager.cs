@@ -14,7 +14,6 @@ namespace FFStudio
         [ SerializeField ] GameEvent event_level_failed;
         [ SerializeField ] GameEvent event_stage_continue;
         [ SerializeField ] GameEvent event_stage_end;
-		[ SerializeField ] GameEvent event_ui_answer_submit;
 		[ SerializeField ] GameEvent event_ui_question_appear;
         [ SerializeField ] GameEvent event_ui_question_disappear;
 
