@@ -108,7 +108,7 @@ public class Goon : MonoBehaviour
 
     void KillPlayer()
     {
-		goon_animator.SetTrigger( "hit" );
+		goon_animator.SetTrigger( "attack" );
 		recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_hit_delay, event_player_killed.Raise ) );
 
 		goon_renderer.sharedMaterials = goon_material_killed; 
