@@ -13,6 +13,7 @@ public class Goon : MonoBehaviour
     [ LabelText( "ID of the Stage Goon belongs to"), BoxGroup( "Setup" ), SerializeField ] int goon_stage_id;
     [ LabelText( "ID of the Goon in current Stage" ), BoxGroup( "Setup" ), SerializeField ] int goon_id;
     [ LabelText( "Health Count" ), BoxGroup( "Setup" ), SerializeField ] int goon_health;
+    [ BoxGroup( "Setup" ), SerializeField ] Material[] goon_material_killed;
 
     [ BoxGroup( "Shared Variables" ), SerializeField ] SharedIntNotifier notif_player_stage_index;
     [ BoxGroup( "Shared Variables" ), SerializeField ] SetGoon set_stage_goon;
@@ -21,6 +22,7 @@ public class Goon : MonoBehaviour
     [ BoxGroup( "Component" ), SerializeField ] Animator goon_animator;
     [ BoxGroup( "Component" ), SerializeField ] GoonMovement goon_movement;
     [ BoxGroup( "Component" ), SerializeField ] GoonLine goon_line;
+    [ BoxGroup( "Component" ), SerializeField ] SkinnedMeshRenderer goon_renderer;
 
     RecycledTween recycledTween = new RecycledTween();
 
@@ -68,10 +70,10 @@ public class Goon : MonoBehaviour
     {
 		goon_health -= damage;
 
-		goon_animator.SetTrigger( "hurt" );
-
 		if( goon_health <= 0 )
 			Die();
+		else
+			goon_animator.SetTrigger( "hurt" );
 	}
 
 	public void PathToPlayer()
@@ -106,8 +108,10 @@ public class Goon : MonoBehaviour
 
     void KillPlayer()
     {
-		goon_animator.SetTrigger( "hit" );
+		goon_animator.SetTrigger( "attack" );
 		recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_hit_delay, event_player_killed.Raise ) );
+
+		goon_renderer.sharedMaterials = goon_material_killed; 
 	}
 
 	void EmptyDelegates()
