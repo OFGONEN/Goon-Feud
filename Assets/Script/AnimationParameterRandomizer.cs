@@ -22,14 +22,19 @@ public class AnimationParameterRandomizer : MonoBehaviour
 #region API
     private void Awake()
     {
+		Randomize();
+	}
+#endregion
+
+#region Implementation
+    [ Button() ]
+    void Randomize()
+    {
         for( var i = 0; i < animator_random_integer.Length; i++ )
         {
 			animator.SetInteger( animator_random_integer[ i ].parameter_name, Random.Range( 0, animator_random_integer[ i ].parameter_max ) );
 		}
     }
-#endregion
-
-#region Implementation
 #endregion
 
 #region Editor Only
