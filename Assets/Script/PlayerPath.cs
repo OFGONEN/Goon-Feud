@@ -35,6 +35,8 @@ public class PlayerPath : MovementPath
     // Info: Enable this on derived classes whenever it is necessary
     private void OnDrawGizmos()
     {
+		if( path_points == null || path_points.Count <= 0 ) return;
+
 		Gizmos.color  = Color.green;
 		Handles.color = Color.green;
 

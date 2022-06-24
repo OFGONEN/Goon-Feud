@@ -24,6 +24,7 @@ public class GoonMovement : MovementPath
 
 #region Properties
     public int PathIndex => path_index;
+    public int PathCount => path_points.Count;
     public bool CanPath => path_index < path_points.Count;
 #endregion
 
@@ -49,17 +50,44 @@ public class GoonMovement : MovementPath
 
 		var sequence = recycledSequence.Recycle();
 
-		sequence.Append( transform.DORotate( targetTransform.rotation.eulerAngles,
+		sequence.Append( movement_transform.DORotate( targetTransform.rotation.eulerAngles,
 			GameSettings.Instance.goon_movement_rotate_speed )
 			.SetEase( Ease.Linear )
 			.SetSpeedBased() );
 
-		sequence.Join( transform.DOMove( targetTransform.position,
+		sequence.Join( movement_transform.DOMove( targetTransform.position,
 			GameSettings.Instance.goon_movement_move_speed )
 			.SetEase( Ease.Linear )
 			.SetSpeedBased() );
 
 		sequence.OnComplete( OnPathComplete );
+	}
+
+	public void DoPathLastPoint( UnityMessage pathComplete )
+	{
+		onPathComplete = pathComplete; // Cache the method
+		path_index     = path_points.Count - 1;
+
+		var targetTransform = path_points[ path_points.Count - 1 ];
+
+		var sequence = recycledSequence.Recycle();
+
+		sequence.Append( movement_transform.DORotate( targetTransform.rotation.eulerAngles,
+			GameSettings.Instance.goon_movement_rotate_speed )
+			.SetEase( Ease.Linear )
+			.SetSpeedBased() );
+
+		sequence.Join( movement_transform.DOMove( targetTransform.position,
+			GameSettings.Instance.goon_movement_move_speed )
+			.SetEase( Ease.Linear )
+			.SetSpeedBased() );
+
+		sequence.OnComplete( OnPathComplete );
+	}
+
+	public Vector3 GetPathPoint( int index )
+	{
+		return path_points[ index ].position;
 	}
 #endregion
 
@@ -84,19 +112,29 @@ public class GoonMovement : MovementPath
     {
 		Gizmos.color  = Color.red;
 		Handles.color = Color.red;
+
+		var firstPosition = movement_transform.position;
+
+		// Draw Spheres on every path point
+		Gizmos.DrawWireSphere( firstPosition, 0.15f );
+
+		// Label Every path point
+		Handles.Label( firstPosition, path_parent.parent.name + ": Start" );
+
 		for( var i = 0; i < path_points.Count; i++ )
         {
 			// Draw Spheres on every path point
-			Gizmos.DrawWireSphere( path_points[ i ].position, 0.15f );
+			Gizmos.DrawWireSphere( path_points[ i ].position, 0.1f );
 
 			// Label Every path point
-			Handles.Label( path_points[ i ].position, path_parent.name + ": " + i );
+			Handles.Label( path_points[ i ].position, path_parent.parent.name + ": " + i );
 		}
 
-        // Draw line between every point
-        for( var i = 0; i < path_points.Count - 1; i++ )
+		// Draw line between every point
+		for( var i = -1; i < path_points.Count - 1; i++ )
         {
-			Handles.DrawDottedLine( path_points[ i ].position, path_points[ i + 1 ].position, 10 );
+			Handles.DrawDottedLine( firstPosition, path_points[ i + 1 ].position, 10 );
+			firstPosition = path_points[ i + 1 ].position;
 		}
     }
 #endif

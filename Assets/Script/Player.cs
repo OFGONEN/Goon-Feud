@@ -52,8 +52,7 @@ public class Player : MonoBehaviour
 		// If player came to a new stage
 		if( notif_player_stage_index.sharedValue < CurrentLevelData.Instance.levelData.stage_count )
 		    event_stage_start.Raise();
-        // else
-            // Player is on the finish line completed its final pat
+        // else Player is on the finish line completed its final path
 	}
 #endregion
 

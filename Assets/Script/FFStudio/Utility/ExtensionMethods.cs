@@ -12,6 +12,7 @@ namespace FFStudio
 	{
 		//Static Variables
 		public static readonly string SAVE_PATH = Application.persistentDataPath + "/Saves/";
+		public static int ANSWER_COUNT = 4;
 
 		private static List< Transform > baseModelBones = new List< Transform >( 96 );
 		private static List< Transform > targetModelBones = new List< Transform >( 96 );
@@ -152,6 +153,11 @@ namespace FFStudio
 		}
 
 		public static void EmptyMethod()
+		{
+			/* Intentionally empty, by definition. */
+		}
+
+		public static void EmptyMethod( Camera cam )
 		{
 			/* Intentionally empty, by definition. */
 		}
