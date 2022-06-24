@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [ BoxGroup( "Setup" ), SerializeField ] GameEvent event_stage_start; 
 
     [ BoxGroup( "Components" ), SerializeField ] PlayerMovement player_movement; 
+    [ BoxGroup( "Components" ), SerializeField ] Animator player_animator; 
 
     int player_path_index = 0;
 #endregion
@@ -27,12 +28,14 @@ public class Player : MonoBehaviour
     // Info: Seriliazed Call for responding to event_level_start
     public void OnLevelStart()
     {
+		player_animator.SetBool( "walking", true );
 		player_movement.DoPath( player_path_index, OnLevelStartPathComplete );
 	}
 
     // Info: Seriliazed Call for responding to event_stage_end
     public void OnStageEnd()
     {
+		player_animator.SetBool( "walking", true );
 		player_movement.DoPath( player_path_index, OnPathComplete );
 	}
 #endregion
@@ -40,12 +43,15 @@ public class Player : MonoBehaviour
 #region Implementation
     void OnLevelStartPathComplete()
     {
+		player_animator.SetBool( "walking", false );
 		player_path_index++;
 		event_stage_start.Raise();
 	}
 
     void OnPathComplete()
     {
+		player_animator.SetBool( "walking", false );
+
 		player_path_index++;
 		notif_player_stage_index.SharedValue++;
 
