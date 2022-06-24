@@ -28,6 +28,7 @@ public class Goon : MonoBehaviour
 #endregion
 
 #region Properties
+	public int GoonID => goon_id;
 #endregion
 
 #region Unity API
@@ -73,10 +74,10 @@ public class Goon : MonoBehaviour
 			Die();
 	}
 
-    public void KillPlayer()
-    {
-		goon_animator.SetTrigger( "hit" );
-		recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_hit_delay, event_player_killed.Raise ) );
+	public void PathToPlayer()
+	{
+		goon_animator.SetBool( "walking", true );
+		goon_movement.DoPathLastPoint( OnPathComplete );
 	}
 #endregion
 
@@ -101,6 +102,12 @@ public class Goon : MonoBehaviour
     {
 		goon_animator.SetBool( "walking", true );
 		goon_movement.DoPath( OnPathComplete );
+	}
+
+    void KillPlayer()
+    {
+		goon_animator.SetTrigger( "hit" );
+		recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_hit_delay, event_player_killed.Raise ) );
 	}
 
 	void EmptyDelegates()
