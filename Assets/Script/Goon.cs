@@ -70,10 +70,10 @@ public class Goon : MonoBehaviour
     {
 		goon_health -= damage;
 
-		goon_animator.SetTrigger( "hurt" );
-
 		if( goon_health <= 0 )
 			Die();
+		else
+			goon_animator.SetTrigger( "hurt" );
 	}
 
 	public void PathToPlayer()
