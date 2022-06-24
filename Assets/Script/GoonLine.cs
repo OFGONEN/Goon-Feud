@@ -27,11 +27,13 @@ public class GoonLine : ImmediateModeShapeDrawer
 #endregion
 
 #region API
+	[ Button() ]
 	public void StartDraw()
 	{
 		onDrawShape = DrawShapes;
 	}
 
+	[ Button() ]
 	public void StopDraw()
 	{
 		onDrawShape = ExtensionMethods.EmptyMethod;
