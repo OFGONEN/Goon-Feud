@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9190212178472724839}
   - component: {fileID: -5650459627131274390}
   - component: {fileID: 3990143675929420058}
+  - component: {fileID: -7406115969765122440}
   m_Layer: 0
   m_Name: goon
   m_TagString: Untagged
@@ -120,6 +121,55 @@ MonoBehaviour:
     parameter_max: 5
   - parameter_name: random_attack
     parameter_max: 5
+--- !u!114 &-7406115969765122440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311165313689433812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245dc21cc9428744fa28ad2d6ce7d327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPairs:
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: a3a9d11e17938924ba3eeadc225baed0, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -3878080535505380595}
+          m_TargetAssemblyTypeName: Goon, Assembly-CSharp
+          m_MethodName: OnStageStart
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: b0cd2c0835aaac64393afc51ab625d72, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: -3878080535505380595}
+          m_TargetAssemblyTypeName: Goon, Assembly-CSharp
+          m_MethodName: OnStageContinue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &505479430006470730
 GameObject:
   m_ObjectHideFlags: 0
