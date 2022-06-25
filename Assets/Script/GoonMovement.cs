@@ -29,6 +29,11 @@ public class GoonMovement : MovementPath
 #endregion
 
 #region Unity API
+	private void OnDisable()
+	{
+		onPathComplete = ExtensionMethods.EmptyMethod;
+		recycledSequence.Kill();
+	}
 #endregion
 
 #region API
