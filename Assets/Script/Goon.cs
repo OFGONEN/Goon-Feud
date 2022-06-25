@@ -44,7 +44,7 @@ public class Goon : MonoBehaviour
 
 	private void Awake()
 	{
-		onDoPath = ExtensionMethods.EmptyMethod;
+		EmptyDelegates();
 	}
 #endregion
 
