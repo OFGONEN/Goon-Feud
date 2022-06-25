@@ -69,6 +69,8 @@ public class PlayerMovement : MonoBehaviour
 			GameSettings.Instance.player_movement_rotate_speed )
 				.SetSpeedBased()
 				.SetEase( Ease.Linear ) );
+
+		sequence.OnComplete( DoPath );
 	}
 
     void OnPathSequenceComplete()
