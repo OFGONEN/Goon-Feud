@@ -3,6 +3,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Sirenix.OdinInspector;
+using DG.Tweening;
 
 namespace FFStudio
 {
@@ -23,9 +24,15 @@ namespace FFStudio
         [ SerializeField ] SharedIntNotifier notif_player_stage_index; 
         [ SerializeField ] SharedFloatNotifier levelProgress;
         [ SerializeField ] SharedReferenceNotifier notif_player_transform;
+    
+        RecycledTween recycledTween = new RecycledTween();
 #endregion
 
 #region UnityAPI
+        private void OnDisable()
+        {
+			recycledTween.Kill();
+		}
 #endregion
 
 #region API
@@ -77,7 +84,12 @@ namespace FFStudio
         {
             // All Questions are answered or All alive goons are submited with an answer since there is less goon than answer count
             if( value == ExtensionMethods.ANSWER_COUNT || value == set_goon.itemDictionary.Count )
+            {
 				event_ui_question_disappear.Raise();
+
+				set_goon.TakeDamage(); // Damage all goons
+				recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_damage_delay, ResolveStageState ) );
+			}
 		}
 
         // Info: Seriliazed Call of value change on the notif_player_stage_index
@@ -109,6 +121,14 @@ namespace FFStudio
 			}
 
 			closestGoon.PathToPlayer();
+		}
+
+        void ResolveStageState()
+        {
+            if( set_goon.itemDictionary.Count > 0 )
+				event_stage_continue.Raise();
+            else
+				event_stage_end.Raise();
 		}
 #endregion
     }
