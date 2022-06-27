@@ -77,6 +77,7 @@ public class Goon : MonoBehaviour
 
 	public void TakeDamge()
 	{
+		// Take damage if goon cached an answer
 		if( answer_cached )
 		{
 			answer_cached = false;
