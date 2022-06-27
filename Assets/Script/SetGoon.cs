@@ -4,11 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FFStudio;
+using Sirenix.OdinInspector;
 
 [ CreateAssetMenu( fileName = "set_stage_goon", menuName = "FF/Data/Set/Stage Goons" ) ]
 public class SetGoon : RuntimeSet< int, Goon >
 {
-
+    [ Button() ]
     public void TakeDamage()
     {
         foreach( var goon in itemDictionary.Values )

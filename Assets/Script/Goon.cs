@@ -69,6 +69,7 @@ public class Goon : MonoBehaviour
 		onDoPath();
 	}
 
+	[ Button() ]
 	public void CacheAnswer( int value )
 	{
 		answer_cached = true;
