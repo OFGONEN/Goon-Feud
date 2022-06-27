@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2721737682241101659, guid: 97f6d05129e879249b7efed28e5042a8, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 2721737682241101659, guid: 97f6d05129e879249b7efed28e5042a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -844,7 +844,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2721737682241101659, guid: 97f6d05129e879249b7efed28e5042a8, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2721737682241101659, guid: 97f6d05129e879249b7efed28e5042a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -908,7 +908,7 @@ PrefabInstance:
       objectReference: {fileID: 398816086}
     - target: {fileID: 7033797120940793689, guid: 97f6d05129e879249b7efed28e5042a8, type: 3}
       propertyPath: goon_id
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7033797120940793689, guid: 97f6d05129e879249b7efed28e5042a8, type: 3}
       propertyPath: goon_health
@@ -1084,7 +1084,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2721737682241101659, guid: 97f6d05129e879249b7efed28e5042a8, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 2721737682241101659, guid: 97f6d05129e879249b7efed28e5042a8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1840,7 +1840,7 @@ PrefabInstance:
       objectReference: {fileID: 219625040}
     - target: {fileID: 7033797120940793689, guid: 97f6d05129e879249b7efed28e5042a8, type: 3}
       propertyPath: goon_id
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7033797120940793689, guid: 97f6d05129e879249b7efed28e5042a8, type: 3}
       propertyPath: goon_health
@@ -2161,7 +2161,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2028301589
 PrefabInstance:
