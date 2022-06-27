@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: goon_animator
       value: 
       objectReference: {fileID: 4602192947844461675}
+    - target: {fileID: -3878080535505380595, guid: 6195e23a9d173b548997368eed2cc0b1, type: 3}
+      propertyPath: goon_renderer
+      value: 
+      objectReference: {fileID: 8792903759783419342}
     - target: {fileID: 311165313689433812, guid: 6195e23a9d173b548997368eed2cc0b1, type: 3}
       propertyPath: m_Name
       value: goon_red
@@ -130,5 +134,10 @@ PrefabInstance:
 --- !u!95 &4602192947844461675 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4962441844242780652, guid: 7401ccbe33e287349b410e8179b12c88, type: 3}
+  m_PrefabInstance: {fileID: 8863194614638814599}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8792903759783419342 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 73975052368214089, guid: 7401ccbe33e287349b410e8179b12c88, type: 3}
   m_PrefabInstance: {fileID: 8863194614638814599}
   m_PrefabAsset: {fileID: 0}
