@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 326acdaa4f813074da6249c6f06a2604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notif_player_stage_index: {fileID: 11400000, guid: b31ba918ab7ee314aa9c70b713e9d8d3, type: 2}
+  notif_player_stage_index: {fileID: 11400000, guid: 0bf0b38867284eb4e8b5a38c9d75ef0a, type: 2}
   event_stage_start: {fileID: 11400000, guid: a3a9d11e17938924ba3eeadc225baed0, type: 2}
   player_movement: {fileID: 5412519119235657630}
   player_animator: {fileID: 8689171277226681513}
