@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
 	int path_point_index;
 
-	List< Transform > path_points;
+	List< Transform > path_points = new List< Transform >( 64 );
     RecycledSequence recycledSequence = new RecycledSequence();
     UnityMessage onPathComplete;
 
