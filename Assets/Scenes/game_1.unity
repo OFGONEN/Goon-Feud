@@ -550,6 +550,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 727388445}
     - target: {fileID: 7033797120940793689, guid: 7bb9d8295a95242439cf092924029e01, type: 3}
+      propertyPath: goon_id
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033797120940793689, guid: 7bb9d8295a95242439cf092924029e01, type: 3}
       propertyPath: goon_health
       value: 50
       objectReference: {fileID: 0}
