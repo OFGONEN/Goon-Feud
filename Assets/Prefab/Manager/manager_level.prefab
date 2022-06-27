@@ -51,7 +51,7 @@ MonoBehaviour:
   event_level_completed: {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
   event_level_failed: {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
   event_stage_continue: {fileID: 11400000, guid: b0cd2c0835aaac64393afc51ab625d72, type: 2}
-  event_stage_end: {fileID: 11400000, guid: a3a9d11e17938924ba3eeadc225baed0, type: 2}
+  event_stage_end: {fileID: 11400000, guid: 1767d3074b9962046bc0699410a116f5, type: 2}
   event_ui_question_appear: {fileID: 11400000, guid: 8a6809913a3f6414d9ae5ae282e8edf7, type: 2}
   event_ui_question_disappear: {fileID: 11400000, guid: af73c70365c4e4e66abfa40310dc4b42, type: 2}
   set_goon: {fileID: 11400000, guid: 5578a7f0e79784b73aedbf92fe368964, type: 2}
