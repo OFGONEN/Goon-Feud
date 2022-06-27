@@ -72,8 +72,12 @@ public class GoonMovement : MovementPath
 #region Implementation
 	void DoMovementPath( TweenCallback onComplete )
 	{
-		var targetTransform = path_points[ path_index ];
-		var targetRotation = Vector3.up * Quaternion.LookRotation( targetTransform.position - movement_transform.position ).eulerAngles.y;
+		var targetPosition  = path_points[ path_index ].position;
+		var targetDirection = targetPosition - movement_transform.position;
+		var targetRotation  = Vector3.up * Quaternion.LookRotation( targetDirection ).eulerAngles.y;
+
+		if( path_index == path_points.Count - 1 )
+			targetPosition -= targetDirection * GameSettings.Instance.goon_movement_lastPoint_distance;
 
 		var sequence = recycledSequence.Recycle();
 
@@ -81,7 +85,7 @@ public class GoonMovement : MovementPath
 			GameSettings.Instance.goon_movement_rotate_speed )
 			.SetEase( Ease.Linear ) );
 
-		sequence.Join( movement_transform.DOMove( targetTransform.position,
+		sequence.Join( movement_transform.DOMove( targetPosition,
 			GameSettings.Instance.goon_movement_move_speed )
 			.SetEase( Ease.Linear )
 			.SetSpeedBased() );
