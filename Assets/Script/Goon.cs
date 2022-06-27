@@ -19,6 +19,7 @@ public class Goon : MonoBehaviour
     [ BoxGroup( "Shared Variables" ), SerializeField ] SetGoon set_stage_goon;
     [ BoxGroup( "Shared Variables" ), SerializeField ] GameEvent event_player_killed;
 
+    [ BoxGroup( "Component" ), SerializeField ] Fire_UnityEvent goon_event_responder;
     [ BoxGroup( "Component" ), SerializeField ] Animator goon_animator;
     [ BoxGroup( "Component" ), SerializeField ] GoonMovement goon_movement;
     [ BoxGroup( "Component" ), SerializeField ] GoonLine goon_line;
@@ -108,7 +109,9 @@ public class Goon : MonoBehaviour
     {
 		EmptyDelegates();
 
-		goon_renderer.sharedMaterials = goon_material_killed; 
+		goon_renderer.sharedMaterials = goon_material_killed;
+
+		goon_event_responder.enabled = false;
 
 		set_stage_goon.RemoveDictionary( goon_id );
 		goon_animator.SetTrigger( "die" );
