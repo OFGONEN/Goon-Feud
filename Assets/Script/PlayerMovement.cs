@@ -57,8 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
 		var position       = movement_transform.position;
 		var targetPosition = path_points[ path_point_index ].position;
-		var targetRotation = Vector3.up * Quaternion.LookRotation( targetPosition ).eulerAngles.y; // Look only on +Y axis
-
+		var targetRotation = Vector3.up * Quaternion.LookRotation( targetPosition - position ).eulerAngles.y; // Look only on +Y axis
 
 		var sequence = recycledSequence.Recycle();
 
