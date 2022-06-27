@@ -107,6 +107,9 @@ public class Goon : MonoBehaviour
     void Die()
     {
 		EmptyDelegates();
+
+		goon_renderer.sharedMaterials = goon_material_killed; 
+
 		set_stage_goon.RemoveDictionary( goon_id );
 		goon_animator.SetTrigger( "die" );
 		goon_line.StopDraw();
@@ -130,8 +133,6 @@ public class Goon : MonoBehaviour
     {
 		goon_animator.SetTrigger( "attack" );
 		recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_hit_delay, event_player_killed.Raise ) );
-
-		goon_renderer.sharedMaterials = goon_material_killed; 
 	}
 
 	void EmptyDelegates()
