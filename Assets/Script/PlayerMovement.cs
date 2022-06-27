@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
 #region API
     public void DoPath( int index, UnityMessage pathComplete )
     {
+		recycledSequence.Kill();
+
 		path_point_index = 0;
 		onPathComplete = pathComplete;
 
