@@ -17,8 +17,10 @@ public class GoonMovement : MovementPath
 
     [ ShowInInspector, ReadOnly ] int path_index;
 
-    // Delegates
-    UnityMessage onPathComplete;
+	Transform player_transform;
+
+	// Delegates
+	UnityMessage onPathComplete;
     RecycledSequence recycledSequence = new RecycledSequence();
 #endregion
 
@@ -41,31 +43,16 @@ public class GoonMovement : MovementPath
     public void OnStageStart()
     {
         // Add the player transform as a final path point
-		var playerTransform = notif_player_transform.SharedValue as Transform;
-		path_points.Add( playerTransform );
+		player_transform = notif_player_transform.SharedValue as Transform;
+		path_points.Add( player_transform );
 	}
 
     public void DoPath( UnityMessage pathComplete )
     {
 		onPathComplete = pathComplete; // Cache the method
-
 		notif_goon_path_count.SharedValue++; // Increase the pathing goon count by 1
 
-		var targetTransform = path_points[ path_index ];
-
-		var sequence = recycledSequence.Recycle();
-
-		sequence.Append( movement_transform.DORotate( targetTransform.rotation.eulerAngles,
-			GameSettings.Instance.goon_movement_rotate_speed )
-			.SetEase( Ease.Linear )
-			.SetSpeedBased() );
-
-		sequence.Join( movement_transform.DOMove( targetTransform.position,
-			GameSettings.Instance.goon_movement_move_speed )
-			.SetEase( Ease.Linear )
-			.SetSpeedBased() );
-
-		sequence.OnComplete( OnPathComplete );
+		DoMovementPath( OnPathComplete );
 	}
 
 	public void DoPathLastPoint( UnityMessage pathComplete )
@@ -73,21 +60,7 @@ public class GoonMovement : MovementPath
 		onPathComplete = pathComplete; // Cache the method
 		path_index     = path_points.Count - 1;
 
-		var targetTransform = path_points[ path_points.Count - 1 ];
-
-		var sequence = recycledSequence.Recycle();
-
-		sequence.Append( movement_transform.DORotate( targetTransform.rotation.eulerAngles,
-			GameSettings.Instance.goon_movement_rotate_speed )
-			.SetEase( Ease.Linear )
-			.SetSpeedBased() );
-
-		sequence.Join( movement_transform.DOMove( targetTransform.position,
-			GameSettings.Instance.goon_movement_move_speed )
-			.SetEase( Ease.Linear )
-			.SetSpeedBased() );
-
-		sequence.OnComplete( OnPathComplete );
+		DoMovementPath( OnPathComplete );
 	}
 
 	public Vector3 GetPathPoint( int index )
@@ -97,6 +70,25 @@ public class GoonMovement : MovementPath
 #endregion
 
 #region Implementation
+	void DoMovementPath( TweenCallback onComplete )
+	{
+		var targetTransform = path_points[ path_index ];
+		var targetRotation = Vector3.up * Quaternion.LookRotation( targetTransform.position - movement_transform.position ).eulerAngles.y;
+
+		var sequence = recycledSequence.Recycle();
+
+		sequence.Append( movement_transform.DORotate( targetRotation,
+			GameSettings.Instance.goon_movement_rotate_speed )
+			.SetEase( Ease.Linear ) );
+
+		sequence.Join( movement_transform.DOMove( targetTransform.position,
+			GameSettings.Instance.goon_movement_move_speed )
+			.SetEase( Ease.Linear )
+			.SetSpeedBased() );
+
+		sequence.OnComplete( onComplete );
+	}
+
     void OnPathComplete()
     {
 		path_index++; // Increase path index since path is complete
@@ -104,7 +96,17 @@ public class GoonMovement : MovementPath
         // Reduce the pathing goon count only if goon can path again
         // If goon can't path anymore, it means that the goon is reached the Player
         if( CanPath )
+		{
+			// Look at player after completing path
+			var targetRotation = Vector3.up * Quaternion.LookRotation( player_transform.position - movement_transform.position ).eulerAngles.y;
+			var sequence = recycledSequence.Recycle();
+
+			sequence.Append( movement_transform.DORotate( targetRotation,
+				GameSettings.Instance.goon_movement_rotate_speed )
+				.SetEase( Ease.Linear ) );
+
 			notif_goon_path_count.SharedValue--;
+		}
 
 		// Invoke the cached path complete method.
 		onPathComplete();
