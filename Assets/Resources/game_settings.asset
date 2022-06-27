@@ -17,6 +17,7 @@ MonoBehaviour:
   goon_movement_move_speed: 0
   goon_movement_rotate_speed: 0
   goon_hit_delay: 0
+  goon_damage_delay: 0
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 1
