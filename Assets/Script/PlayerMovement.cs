@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [ BoxGroup( "Setup" ), SerializeField ] SetPath set_path;
     [ BoxGroup( "Setup" ), SerializeField ] Transform movement_transform;
 
-	int path_point_index;
+	[ ShowInInspector, ReadOnly ] int path_point_index;
 
 	List< Transform > path_points = new List< Transform >( 64 );
     RecycledSequence recycledSequence = new RecycledSequence();

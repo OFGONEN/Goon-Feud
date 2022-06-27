@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     [ BoxGroup( "Components" ), SerializeField ] PlayerMovement player_movement; 
     [ BoxGroup( "Components" ), SerializeField ] Animator player_animator; 
 
-    int player_path_index = 0;
+    [ ShowInInspector, ReadOnly ] int player_path_index = 0;
 #endregion
 
 #region Properties
