@@ -131,5 +131,15 @@ namespace FFStudio
 				event_stage_end.Raise();
 		}
 #endregion
+
+#region Editor Only
+#if UNITY_EDITOR
+        [ Button() ]
+        void AnswerSubmit()
+        {
+			OnAnswerSubmit( 4 );
+		}
+#endif
+#endregion
     }
 }
