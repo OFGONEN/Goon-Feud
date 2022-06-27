@@ -83,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
 			var sequence = recycledSequence.Recycle();
 			sequence.Join( movement_transform.DORotate( path_points[ path_points.Count - 1 ].eulerAngles,
 				GameSettings.Instance.player_movement_rotate_speed )
-					.SetSpeedBased()
 					.SetEase( Ease.Linear ) )
                     .OnComplete( onPathComplete.Invoke );
 		}
