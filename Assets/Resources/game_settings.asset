@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_movement_move_speed: 2
   player_movement_rotate_speed: 0.3
-  goon_movement_move_speed: 0
-  goon_movement_rotate_speed: 0
-  goon_hit_delay: 0
-  goon_damage_delay: 0
+  goon_movement_move_speed: 2.5
+  goon_movement_rotate_speed: 0.2
+  goon_hit_delay: 0.5
+  goon_damage_delay: 0.5
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 5
