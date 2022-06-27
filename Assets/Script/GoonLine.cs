@@ -30,7 +30,7 @@ public class GoonLine : ImmediateModeShapeDrawer
 	[ Button() ]
 	public void StartDraw()
 	{
-		onDrawShape = DrawShapes;
+		onDrawShape = DrawLine;
 	}
 
 	[ Button() ]
@@ -46,7 +46,7 @@ public class GoonLine : ImmediateModeShapeDrawer
 		onDrawShape( cam );
 	}
 
-	void DrawShape( Camera cam )
+	void DrawLine( Camera cam )
 	{
 		using( Draw.Command( cam ) )
         {
