@@ -38,7 +38,7 @@ public abstract class MovementPath : MonoBehaviour
 
 		for( var i = 0; i < path_parent.childCount; i++ )
         {
-			path_points[ i ] = path_parent.GetChild( i );
+			path_points.Add( path_parent.GetChild( i ) );
 		}
     }
 

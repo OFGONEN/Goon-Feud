@@ -17,6 +17,9 @@ namespace FFStudio
   [ Title( "Goon" ) ]
         public float goon_movement_move_speed;
         public float goon_movement_rotate_speed;
+        public float goon_movement_lastPoint_distance;
+        public float goon_hit_delay;
+        public float goon_damage_delay;
 
     // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;

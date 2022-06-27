@@ -13,9 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [ BoxGroup( "Setup" ), SerializeField ] SetPath set_path;
     [ BoxGroup( "Setup" ), SerializeField ] Transform movement_transform;
 
-	int path_point_index;
+	[ ShowInInspector, ReadOnly ] int path_point_index;
 
-	List< Transform > path_points;
+	List< Transform > path_points = new List< Transform >( 64 );
     RecycledSequence recycledSequence = new RecycledSequence();
     UnityMessage onPathComplete;
 
@@ -26,11 +26,18 @@ public class PlayerMovement : MonoBehaviour
 #endregion
 
 #region Unity API
+	private void OnDisable()
+	{
+		onPathComplete = ExtensionMethods.EmptyMethod;
+		recycledSequence.Kill();
+	}
 #endregion
 
 #region API
     public void DoPath( int index, UnityMessage pathComplete )
     {
+		recycledSequence.Kill();
+
 		path_point_index = 0;
 		onPathComplete = pathComplete;
 
@@ -48,10 +55,9 @@ public class PlayerMovement : MonoBehaviour
 
     void DoPath()
     {
-		var position       = transform.position;
+		var position       = movement_transform.position;
 		var targetPosition = path_points[ path_point_index ].position;
-		var targetRotation = Vector3.up * Quaternion.LookRotation( targetPosition ).eulerAngles.y; // Look only on +Y axis
-
+		var targetRotation = Vector3.up * Quaternion.LookRotation( targetPosition - position ).eulerAngles.y; // Look only on +Y axis
 
 		var sequence = recycledSequence.Recycle();
 
@@ -62,8 +68,9 @@ public class PlayerMovement : MonoBehaviour
 
 		sequence.Join( movement_transform.DORotate( targetRotation,
 			GameSettings.Instance.player_movement_rotate_speed )
-				.SetSpeedBased()
 				.SetEase( Ease.Linear ) );
+
+		sequence.OnComplete( OnPathSequenceComplete );
 	}
 
     void OnPathSequenceComplete()
@@ -77,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
 			var sequence = recycledSequence.Recycle();
 			sequence.Join( movement_transform.DORotate( path_points[ path_points.Count - 1 ].eulerAngles,
 				GameSettings.Instance.player_movement_rotate_speed )
-					.SetSpeedBased()
 					.SetEase( Ease.Linear ) )
                     .OnComplete( onPathComplete.Invoke );
 		}

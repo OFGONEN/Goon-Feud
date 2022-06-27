@@ -35,6 +35,8 @@ public class PlayerPath : MovementPath
     // Info: Enable this on derived classes whenever it is necessary
     private void OnDrawGizmos()
     {
+		if( path_points == null || path_points.Count <= 0 ) return;
+
 		Gizmos.color  = Color.green;
 		Handles.color = Color.green;
 
@@ -43,8 +45,10 @@ public class PlayerPath : MovementPath
 		Gizmos.DrawWireSphere( path_points[ path_points.Count - 1 ].position, 0.15f );
 
 		// Label start and end of the path
-		Handles.Label( path_points[ 0 ].position, $"PlayerPath Start: " + path_index );
-		Handles.Label( path_points[ path_points.Count - 1 ].position, $"PlayerPath End: " + path_index );
+		Handles.Label( path_points[ 0 ].position, $"PlayerPath First: " + path_index );
+
+		if( path_points.Count > 1 )
+			Handles.Label( path_points[ path_points.Count - 1 ].position, $"PlayerPath Last: " + path_index );
 
 		// Draw line between every point
 		for( var i = 0; i < path_points.Count - 1; i++ )

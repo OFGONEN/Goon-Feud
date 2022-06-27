@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2fdfc26e03d194ec5ad3e7a08c4c7dac
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - notif_player_stage_index: {fileID: 11400000, guid: 0bf0b38867284eb4e8b5a38c9d75ef0a, type: 2}
+  - set_stage_goon: {fileID: 11400000, guid: 5578a7f0e79784b73aedbf92fe368964, type: 2}
+  - event_player_killed: {fileID: 11400000, guid: ad8a8d4e7c62845369759b6516e7fa69, type: 2}
+  - goon_animator: {instanceID: 0}
+  - goon_movement: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

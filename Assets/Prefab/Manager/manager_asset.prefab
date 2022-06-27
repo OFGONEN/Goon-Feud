@@ -50,8 +50,80 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 07c56239588814c1996e673febff6634, type: 2}
         m_TargetAssemblyTypeName: FFStudio.SaveSystem, Assembly-CSharp
-        m_MethodName: Initiliaze
+        m_MethodName: Initialize
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 9804880032b2a2742879ecb704abcb55, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.RuntimeSet`2[[System.Int32, mscorlib
+        m_MethodName: ClearSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 5578a7f0e79784b73aedbf92fe368964, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.RuntimeSet`2[[System.Int32, mscorlib
+        m_MethodName: ClearSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: b31ba918ab7ee314aa9c70b713e9d8d3, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32, mscorlib
+        m_MethodName: SetValue_DontNotify
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 0bf0b38867284eb4e8b5a38c9d75ef0a, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32, mscorlib
+        m_MethodName: SetValue_DontNotify
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 27eb631d0b4bf4674a46cda7ae2d9b8f, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32, mscorlib
+        m_MethodName: SetValue_DontNotify
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 80a150b8f6d3b436cb39a4a618667dd9, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32, mscorlib
+        m_MethodName: SetValue_DontNotify
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -95,6 +167,190 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 11400000, guid: a5edacec3496d4c5f9e94958dd3b9adf, type: 2}
             m_ObjectArgumentAssemblyTypeName: FFStudio.IntGameEvent, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 9804880032b2a2742879ecb704abcb55, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.RuntimeSet`2[[System.Int32, mscorlib
+          m_MethodName: ClearSet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 5578a7f0e79784b73aedbf92fe368964, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.RuntimeSet`2[[System.Int32, mscorlib
+          m_MethodName: ClearSet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: b31ba918ab7ee314aa9c70b713e9d8d3, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32,
+            mscorlib
+          m_MethodName: set_SharedValue
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 0bf0b38867284eb4e8b5a38c9d75ef0a, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32,
+            mscorlib
+          m_MethodName: SetValue_DontNotify
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 27eb631d0b4bf4674a46cda7ae2d9b8f, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32,
+            mscorlib
+          m_MethodName: SetValue_DontNotify
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 80a150b8f6d3b436cb39a4a618667dd9, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32,
+            mscorlib
+          m_MethodName: SetValue_DontNotify
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 9804880032b2a2742879ecb704abcb55, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.RuntimeSet`2[[System.Int32, mscorlib
+          m_MethodName: ClearSet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 5578a7f0e79784b73aedbf92fe368964, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.RuntimeSet`2[[System.Int32, mscorlib
+          m_MethodName: ClearSet
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: b31ba918ab7ee314aa9c70b713e9d8d3, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32,
+            mscorlib
+          m_MethodName: set_SharedValue
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 0bf0b38867284eb4e8b5a38c9d75ef0a, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32,
+            mscorlib
+          m_MethodName: SetValue_DontNotify
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 27eb631d0b4bf4674a46cda7ae2d9b8f, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32,
+            mscorlib
+          m_MethodName: SetValue_DontNotify
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 80a150b8f6d3b436cb39a4a618667dd9, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32,
+            mscorlib
+          m_MethodName: SetValue_DontNotify
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: af73c70365c4e4e66abfa40310dc4b42, type: 2}
+      - {fileID: 11400000, guid: 8a6809913a3f6414d9ae5ae282e8edf7, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 80a150b8f6d3b436cb39a4a618667dd9, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32,
+            mscorlib
+          m_MethodName: SetValue_DontNotify
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

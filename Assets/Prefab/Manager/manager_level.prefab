@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 545607841950496312}
   - component: {fileID: 3087407567312676473}
   - component: {fileID: 6253295288017648143}
+  - component: {fileID: 6865497855426047627}
+  - component: {fileID: 2475510356470852540}
+  - component: {fileID: 3561976844384245107}
   m_Layer: 0
   m_Name: manager_level
   m_TagString: Untagged
@@ -45,15 +48,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cb6e239db80ce479304a2061d01ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelLoadedListener:
-    gameEvent: {fileID: 11400000, guid: 08b9079fb856230459ba418b28981185, type: 2}
-  levelRevealedListener:
-    gameEvent: {fileID: 11400000, guid: be5502ede7f194b4cad32082aa9196eb, type: 2}
-  levelStartedListener:
-    gameEvent: {fileID: 11400000, guid: efef06bf257ee27438d6c2aab4936226, type: 2}
-  levelFailedEvent: {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
-  levelCompleted: {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+  event_level_completed: {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
+  event_level_failed: {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
+  event_stage_continue: {fileID: 11400000, guid: b0cd2c0835aaac64393afc51ab625d72, type: 2}
+  event_stage_end: {fileID: 11400000, guid: 1767d3074b9962046bc0699410a116f5, type: 2}
+  event_ui_question_appear: {fileID: 11400000, guid: 8a6809913a3f6414d9ae5ae282e8edf7, type: 2}
+  event_ui_question_disappear: {fileID: 11400000, guid: af73c70365c4e4e66abfa40310dc4b42, type: 2}
+  set_goon: {fileID: 11400000, guid: 5578a7f0e79784b73aedbf92fe368964, type: 2}
+  notif_ui_question_index: {fileID: 11400000, guid: 27eb631d0b4bf4674a46cda7ae2d9b8f, type: 2}
+  notif_player_stage_index: {fileID: 11400000, guid: 0bf0b38867284eb4e8b5a38c9d75ef0a, type: 2}
   levelProgress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}
+  notif_player_transform: {fileID: 11400000, guid: a4ba5c817e23e8d42803096879734ac4, type: 2}
 --- !u!114 &6253295288017648143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +108,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: efef06bf257ee27438d6c2aab4936226, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.GameEvent, Assembly-CSharp
+          m_MethodName: Raise
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventListener:
       gameEvents:
       - {fileID: 11400000, guid: efef06bf257ee27438d6c2aab4936226, type: 2}
@@ -121,3 +138,105 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventListener:
+      gameEvents:
+      - {fileID: 11400000, guid: ad8a8d4e7c62845369759b6516e7fa69, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
+          m_TargetAssemblyTypeName: FFStudio.GameEvent, Assembly-CSharp
+          m_MethodName: Raise
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &6865497855426047627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333294110489974212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfef1110e1f14a48895ed44ca5d1f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedDataNotifier: {fileID: 11400000, guid: b31ba918ab7ee314aa9c70b713e9d8d3, type: 2}
+  notify_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3087407567312676473}
+        m_TargetAssemblyTypeName: FFStudio.LevelManager, Assembly-CSharp
+        m_MethodName: OnGoonPathingCount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2475510356470852540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333294110489974212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfef1110e1f14a48895ed44ca5d1f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedDataNotifier: {fileID: 11400000, guid: 80a150b8f6d3b436cb39a4a618667dd9, type: 2}
+  notify_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3087407567312676473}
+        m_TargetAssemblyTypeName: FFStudio.LevelManager, Assembly-CSharp
+        m_MethodName: OnAnswerSubmit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3561976844384245107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333294110489974212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfef1110e1f14a48895ed44ca5d1f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedDataNotifier: {fileID: 11400000, guid: 0bf0b38867284eb4e8b5a38c9d75ef0a, type: 2}
+  notify_event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3087407567312676473}
+        m_TargetAssemblyTypeName: FFStudio.LevelManager, Assembly-CSharp
+        m_MethodName: OnPlayerStageIndexChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

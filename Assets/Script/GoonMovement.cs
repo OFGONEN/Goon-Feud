@@ -17,17 +17,25 @@ public class GoonMovement : MovementPath
 
     [ ShowInInspector, ReadOnly ] int path_index;
 
-    // Delegates
-    UnityMessage onPathComplete;
+	Transform player_transform;
+
+	// Delegates
+	UnityMessage onPathComplete;
     RecycledSequence recycledSequence = new RecycledSequence();
 #endregion
 
 #region Properties
     public int PathIndex => path_index;
+    public int PathCount => path_points.Count;
     public bool CanPath => path_index < path_points.Count;
 #endregion
 
 #region Unity API
+	private void OnDisable()
+	{
+		onPathComplete = ExtensionMethods.EmptyMethod;
+		recycledSequence.Kill();
+	}
 #endregion
 
 #region API
@@ -35,35 +43,56 @@ public class GoonMovement : MovementPath
     public void OnStageStart()
     {
         // Add the player transform as a final path point
-		var playerTransform = notif_player_transform.SharedValue as Transform;
-		path_points.Add( playerTransform );
+		player_transform = notif_player_transform.SharedValue as Transform;
+		path_points.Add( player_transform );
 	}
 
     public void DoPath( UnityMessage pathComplete )
     {
 		onPathComplete = pathComplete; // Cache the method
-
 		notif_goon_path_count.SharedValue++; // Increase the pathing goon count by 1
 
-		var targetTransform = path_points[ path_index ];
+		DoMovementPath( OnPathComplete );
+	}
 
-		var sequence = recycledSequence.Recycle();
+	public void DoPathLastPoint( UnityMessage pathComplete )
+	{
+		onPathComplete = pathComplete; // Cache the method
+		path_index     = path_points.Count - 1;
 
-		sequence.Append( transform.DORotate( targetTransform.rotation.eulerAngles,
-			GameSettings.Instance.goon_movement_rotate_speed )
-			.SetEase( Ease.Linear )
-			.SetSpeedBased() );
+		DoMovementPath( OnPathComplete );
+	}
 
-		sequence.Join( transform.DOMove( targetTransform.position,
-			GameSettings.Instance.goon_movement_move_speed )
-			.SetEase( Ease.Linear )
-			.SetSpeedBased() );
-
-		sequence.OnComplete( OnPathComplete );
+	public Vector3 GetPathPoint( int index )
+	{
+		return path_points[ index ].position;
 	}
 #endregion
 
 #region Implementation
+	void DoMovementPath( TweenCallback onComplete )
+	{
+		var targetPosition  = path_points[ path_index ].position;
+		var targetDirection = targetPosition - movement_transform.position;
+		var targetRotation  = Vector3.up * Quaternion.LookRotation( targetDirection ).eulerAngles.y;
+
+		if( path_index == path_points.Count - 1 )
+			targetPosition -= targetDirection * GameSettings.Instance.goon_movement_lastPoint_distance;
+
+		var sequence = recycledSequence.Recycle();
+
+		sequence.Append( movement_transform.DORotate( targetRotation,
+			GameSettings.Instance.goon_movement_rotate_speed )
+			.SetEase( Ease.Linear ) );
+
+		sequence.Join( movement_transform.DOMove( targetPosition,
+			GameSettings.Instance.goon_movement_move_speed )
+			.SetEase( Ease.Linear )
+			.SetSpeedBased() );
+
+		sequence.OnComplete( onComplete );
+	}
+
     void OnPathComplete()
     {
 		path_index++; // Increase path index since path is complete
@@ -71,7 +100,17 @@ public class GoonMovement : MovementPath
         // Reduce the pathing goon count only if goon can path again
         // If goon can't path anymore, it means that the goon is reached the Player
         if( CanPath )
+		{
+			// Look at player after completing path
+			var targetRotation = Vector3.up * Quaternion.LookRotation( player_transform.position - movement_transform.position ).eulerAngles.y;
+			var sequence = recycledSequence.Recycle();
+
+			sequence.Append( movement_transform.DORotate( targetRotation,
+				GameSettings.Instance.goon_movement_rotate_speed )
+				.SetEase( Ease.Linear ) );
+
 			notif_goon_path_count.SharedValue--;
+		}
 
 		// Invoke the cached path complete method.
 		onPathComplete();
@@ -84,19 +123,29 @@ public class GoonMovement : MovementPath
     {
 		Gizmos.color  = Color.red;
 		Handles.color = Color.red;
+
+		var firstPosition = movement_transform.position;
+
+		// Draw Spheres on every path point
+		Gizmos.DrawWireSphere( firstPosition, 0.15f );
+
+		// Label Every path point
+		Handles.Label( firstPosition, path_parent.parent.name + ": Start" );
+
 		for( var i = 0; i < path_points.Count; i++ )
         {
 			// Draw Spheres on every path point
-			Gizmos.DrawWireSphere( path_points[ i ].position, 0.15f );
+			Gizmos.DrawWireSphere( path_points[ i ].position, 0.1f );
 
 			// Label Every path point
-			Handles.Label( path_points[ i ].position, path_parent.name + ": " + i );
+			Handles.Label( path_points[ i ].position, path_parent.parent.name + ": " + i );
 		}
 
-        // Draw line between every point
-        for( var i = 0; i < path_points.Count - 1; i++ )
+		// Draw line between every point
+		for( var i = -1; i < path_points.Count - 1; i++ )
         {
-			Handles.DrawDottedLine( path_points[ i ].position, path_points[ i + 1 ].position, 10 );
+			Handles.DrawDottedLine( firstPosition, path_points[ i + 1 ].position, 10 );
+			firstPosition = path_points[ i + 1 ].position;
 		}
     }
 #endif
