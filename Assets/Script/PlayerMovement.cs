@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
     void DoPath()
     {
-		var position       = transform.position;
+		var position       = movement_transform.position;
 		var targetPosition = path_points[ path_point_index ].position;
 		var targetRotation = Vector3.up * Quaternion.LookRotation( targetPosition ).eulerAngles.y; // Look only on +Y axis
 
@@ -67,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
 
 		sequence.Join( movement_transform.DORotate( targetRotation,
 			GameSettings.Instance.player_movement_rotate_speed )
-				.SetSpeedBased()
 				.SetEase( Ease.Linear ) );
 
 		sequence.OnComplete( DoPath );
