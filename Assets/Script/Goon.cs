@@ -24,8 +24,11 @@ public class Goon : MonoBehaviour
     [ BoxGroup( "Component" ), SerializeField ] GoonLine goon_line;
     [ BoxGroup( "Component" ), SerializeField ] SkinnedMeshRenderer goon_renderer;
 
-    RecycledTween recycledTween = new RecycledTween();
+	// Answer Cache
+	bool answer_cached = false;
+	int answer_value = 0;
 
+	RecycledTween recycledTween = new RecycledTween();
 	UnityMessage onDoPath;
 #endregion
 
@@ -66,14 +69,19 @@ public class Goon : MonoBehaviour
 		onDoPath();
 	}
 
-    public void TakeDamage( int damage )
-    {
-		goon_health -= damage;
+	public void CacheAnswer( int value )
+	{
+		answer_cached = true;
+		answer_value  = value;
+	}
 
-		if( goon_health <= 0 )
-			Die();
-		else
-			goon_animator.SetTrigger( "hurt" );
+	public void TakeDamge()
+	{
+		if( answer_cached )
+		{
+			answer_cached = false;
+			TakeDamage( answer_value );
+		}
 	}
 
 	public void PathToPlayer()
@@ -84,6 +92,16 @@ public class Goon : MonoBehaviour
 #endregion
 
 #region Implementation
+    void TakeDamage( int damage )
+    {
+		goon_health -= damage;
+
+		if( goon_health <= 0 )
+			Die();
+		else
+			goon_animator.SetTrigger( "hurt" );
+	}
+
     void Die()
     {
 		EmptyDelegates();
