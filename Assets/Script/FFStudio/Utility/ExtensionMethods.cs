@@ -439,6 +439,11 @@ namespace FFStudio
 		{
 			return Mathf.Clamp( value, vector.x, vector.y );
 		}
+
+		public static float ReturnDuration( this float velocity, float distance )
+		{
+			return Mathf.Abs( distance / velocity );
+		}
 	}
 }
 

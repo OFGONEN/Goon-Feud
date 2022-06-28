@@ -72,21 +72,25 @@ public class GoonMovement : MovementPath
 #region Implementation
 	void DoMovementPath( TweenCallback onComplete )
 	{
+		var position        = movement_transform.position;
 		var targetPosition  = path_points[ path_index ].position;
-		var targetDirection = targetPosition - movement_transform.position;
+		var targetDirection = targetPosition - position;
 		var targetRotation  = Vector3.up * Quaternion.LookRotation( targetDirection ).eulerAngles.y;
+
+		var movementDuration = GameSettings.Instance.goon_movement_move_speed.ReturnDuration( Vector3.Distance( position, targetPosition ) );
+		var rotationDuration = GameSettings.Instance.goon_movement_rotate_speed.ReturnDuration( Vector3.Angle( movement_transform.forward, targetDirection ) );
 
 		if( path_index == path_points.Count - 1 )
 			targetPosition -= targetDirection * GameSettings.Instance.goon_movement_lastPoint_distance;
 
 		var sequence = recycledSequence.Recycle();
 
-		sequence.Append( movement_transform.DORotate( targetRotation,
-			GameSettings.Instance.goon_movement_rotate_speed )
+		sequence.Append( movement_transform.DOMove( targetPosition,
+			movementDuration )
 			.SetEase( Ease.Linear ) );
 
-		sequence.Join( movement_transform.DOMove( targetPosition,
-			GameSettings.Instance.goon_movement_move_speed )
+		sequence.Join( movement_transform.DORotate( targetRotation,
+			rotationDuration )
 			.SetEase( Ease.Linear ) );
 
 		sequence.OnComplete( onComplete );
@@ -101,11 +105,14 @@ public class GoonMovement : MovementPath
         if( CanPath )
 		{
 			// Look at player after completing path
-			var targetRotation = Vector3.up * Quaternion.LookRotation( player_transform.position - movement_transform.position ).eulerAngles.y;
+			var targetDirection  = player_transform.position - movement_transform.position;
+			var targetRotation   = Vector3.up * Quaternion.LookRotation( targetDirection ).eulerAngles.y;
+			var rotationDuration = GameSettings.Instance.goon_movement_rotate_speed.ReturnDuration( Vector3.Angle( movement_transform.forward, targetDirection ) );
+
 			var sequence = recycledSequence.Recycle();
 
 			sequence.Append( movement_transform.DORotate( targetRotation,
-				GameSettings.Instance.goon_movement_rotate_speed )
+				rotationDuration )
 				.SetEase( Ease.Linear ) );
 
 			notif_goon_path_count.SharedValue--;

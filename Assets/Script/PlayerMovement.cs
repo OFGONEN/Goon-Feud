@@ -55,18 +55,22 @@ public class PlayerMovement : MonoBehaviour
 
     void DoPath()
     {
-		var position       = movement_transform.position;
-		var targetPosition = path_points[ path_point_index ].position;
-		var targetRotation = Vector3.up * Quaternion.LookRotation( targetPosition - position ).eulerAngles.y; // Look only on +Y axis
+		var position        = movement_transform.position;
+		var targetPosition  = path_points[ path_point_index ].position;
+		var targetDirection = ( targetPosition - position ).normalized;
+		var targetRotation  = Vector3.up * Quaternion.LookRotation( targetDirection ).eulerAngles.y;  // Look only on +Y axis
+
+		var movementDuration = GameSettings.Instance.player_movement_move_speed.ReturnDuration( Vector3.Distance( position, targetPosition ) );
+		var rotationDuration = GameSettings.Instance.player_movement_rotate_speed.ReturnDuration( Vector3.Angle( movement_transform.forward, targetDirection ) );
 
 		var sequence = recycledSequence.Recycle();
 
 		sequence.Append( movement_transform.DOMove( targetPosition,
-			GameSettings.Instance.player_movement_move_speed )
+			movementDuration )
 				.SetEase( Ease.Linear ) );
 
 		sequence.Join( movement_transform.DORotate( targetRotation,
-			GameSettings.Instance.player_movement_rotate_speed )
+			rotationDuration )
 				.SetEase( Ease.Linear ) );
 
 		sequence.OnComplete( OnPathSequenceComplete );
@@ -79,10 +83,11 @@ public class PlayerMovement : MonoBehaviour
         // If we are the last point of the path
         if( path_point_index >= path_points.Count )
         {
-            // Look towards last points forward
+			var duration = GameSettings.Instance.player_movement_rotate_speed.ReturnDuration( Vector3.Angle( path_points[ path_points.Count - 1 ].forward, movement_transform.forward ) );
+
+			// Look towards last points forward
 			var sequence = recycledSequence.Recycle();
-			sequence.Join( movement_transform.DORotate( path_points[ path_points.Count - 1 ].eulerAngles,
-				GameSettings.Instance.player_movement_rotate_speed )
+			sequence.Join( movement_transform.DORotate( path_points[ path_points.Count - 1 ].eulerAngles, duration)
 					.SetEase( Ease.Linear ) )
                     .OnComplete( onPathComplete.Invoke );
 		}
