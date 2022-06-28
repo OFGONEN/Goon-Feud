@@ -87,8 +87,7 @@ public class GoonMovement : MovementPath
 
 		sequence.Join( movement_transform.DOMove( targetPosition,
 			GameSettings.Instance.goon_movement_move_speed )
-			.SetEase( Ease.Linear )
-			.SetSpeedBased() );
+			.SetEase( Ease.Linear ) );
 
 		sequence.OnComplete( onComplete );
 	}

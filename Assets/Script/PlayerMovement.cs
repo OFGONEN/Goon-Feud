@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
 
 		sequence.Append( movement_transform.DOMove( targetPosition,
 			GameSettings.Instance.player_movement_move_speed )
-				.SetSpeedBased()
 				.SetEase( Ease.Linear ) );
 
 		sequence.Join( movement_transform.DORotate( targetRotation,
