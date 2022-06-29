@@ -92,6 +92,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui_image: {fileID: 4979094862161837269}
   notif_camera_transform: {fileID: 11400000, guid: 488e798dd6f140e4a84fa7485b885dd3, type: 2}
+  pool_ui_hitPoint: {fileID: 11400000, guid: 19e1314b362cac54b9ba4e17ff82ed4c, type: 2}
+  set_ui_hitPoint: {fileID: 11400000, guid: e2e8767f9d1b0f9469f78865c1ffd268, type: 2}
 --- !u!114 &3221222226876844381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,13 +113,13 @@ MonoBehaviour:
     unityEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 11400000, guid: 19e1314b362cac54b9ba4e17ff82ed4c, type: 2}
-          m_TargetAssemblyTypeName: FFStudio.ComponentPool`1[[UIHitPoint, Assembly-CSharp
-          m_MethodName: ReturnEntity
-          m_Mode: 2
+        - m_Target: {fileID: 5667801335718753216}
+          m_TargetAssemblyTypeName: UIHitPoint, Assembly-CSharp
+          m_MethodName: OnQuestionDisappear
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 5667801335718753216}
-            m_ObjectArgumentAssemblyTypeName: UIHitPoint, Assembly-CSharp
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

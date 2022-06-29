@@ -12,6 +12,8 @@ public class UIHitPoint : MonoBehaviour
 #region Fields
     [ BoxGroup( "Setup" ), SerializeField ] Image ui_image;
     [ BoxGroup( "Setup" ), SerializeField ] SharedReferenceNotifier notif_camera_transform;
+	[ BoxGroup( "Setup" ), SerializeField ] PoolUIHitPoint pool_ui_hitPoint;
+	[ BoxGroup( "Setup" ), SerializeField ] SetUIHitPoint set_ui_hitPoint;
 
     Goon goon_current;
     Camera camera_main;
@@ -27,6 +29,8 @@ public class UIHitPoint : MonoBehaviour
 #region API
     public void AttachToGoon( Goon goon )
     {
+		set_ui_hitPoint.AddList( this );
+
 		gameObject.SetActive( true );
 		ui_rectTransform = ui_image.rectTransform;
 
@@ -50,16 +54,26 @@ public class UIHitPoint : MonoBehaviour
 
 	public void OnAnswerCache( int value )
 	{
+		set_ui_hitPoint.RemoveList( this );
+
 		ui_image.enabled = false;
 		goon_current.CacheAnswer( value );
 	}
 
 	public void OnAnswerClear()
 	{
+		set_ui_hitPoint.AddList( this );
+
 		goon_current.ClearAnswer();
 
 		ui_image.color = GameSettings.Instance.hitpoint_color_default;
 		ui_image.enabled = true;
+	}
+
+	public void OnQuestionDisappear()
+	{
+		set_ui_hitPoint.RemoveList( this );
+		pool_ui_hitPoint.ReturnEntity( this );
 	}
 #endregion
 
