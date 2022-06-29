@@ -53,7 +53,7 @@ public class GoonLine : ImmediateModeShapeDrawer
 			Vector3 startPosition = goon_transform.position;
 
 			// Draw Lines
-			for( var i = goon_movement.PathIndex; i < goon_movement.PathCount; i++ )
+			for( var i = goon_movement.PathIndex; i < goon_movement.PathCount - 1; i++ )
 			{
 				var targetPosition = goon_movement.GetPathPoint( i );
 
@@ -61,6 +61,12 @@ public class GoonLine : ImmediateModeShapeDrawer
 
 				startPosition = targetPosition;
 			}
+
+			var lastPosition = goon_movement.GetPathPoint( goon_movement.PathCount - 1 );
+			var direction    = ( lastPosition - startPosition ).normalized;
+			lastPosition -= direction * GameSettings.Instance.goon_movement_lastPoint_line_distance;
+
+			Draw.Line( startPosition, lastPosition, 0.125f, LineEndCap.None, Color.white );
 		}
 	}
 #endregion
