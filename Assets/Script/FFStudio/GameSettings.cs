@@ -23,9 +23,12 @@ namespace FFStudio
         public float goon_damage_delay;
         public float goon_ui_fill_duration;
         public float goon_ui_disable_delay;
+        public float goon_torso_height;
     
   [ Title( "Question UI" ) ]
         public float question_transparent_value;
+        public Color hitpoint_color_default;
+        public Color hitpoint_color_selected;
 
     // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;
@@ -69,6 +72,16 @@ namespace FFStudio
         {
             return instance;
         }
+#endregion
+
+#region Editor Only
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+			hitpoint_color_default  = hitpoint_color_default.SetAlpha( 1 );
+			hitpoint_color_selected = hitpoint_color_selected.SetAlpha( 1 );
+		}
+#endif
 #endregion
     }
 }

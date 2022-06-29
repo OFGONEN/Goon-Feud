@@ -22,7 +22,10 @@ MonoBehaviour:
   goon_damage_delay: 1
   goon_ui_fill_duration: 0.65
   goon_ui_disable_delay: 0.75
+  goon_torso_height: 1
   question_transparent_value: 0.5
+  hitpoint_color_default: {r: 1, g: 1, b: 1, a: 1}
+  hitpoint_color_selected: {r: 1, g: 1, b: 0, a: 1}
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 5
