@@ -74,7 +74,7 @@ public class GoonMovement : MovementPath
 	{
 		var position        = movement_transform.position;
 		var targetPosition  = path_points[ path_index ].position;
-		var targetDirection = targetPosition - position;
+		var targetDirection = ( targetPosition - position ).normalized;
 		var targetRotation  = Vector3.up * Quaternion.LookRotation( targetDirection ).eulerAngles.y;
 
 		var movementDuration = GameSettings.Instance.goon_movement_move_speed.ReturnDuration( Vector3.Distance( position, targetPosition ) );
