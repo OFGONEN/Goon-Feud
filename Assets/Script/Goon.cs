@@ -89,6 +89,13 @@ public class Goon : MonoBehaviour
 		answer_value  = value;
 	}
 
+	[ Button() ]
+	public void ClearAnswer()
+	{
+		answer_cached = false;
+		answer_value  = 0;
+	}
+
 	public void TakeDamge()
 	{
 		// Take damage if goon cached an answer
