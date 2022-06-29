@@ -68,8 +68,11 @@ namespace FFStudio
 #region API
         public void QuestionAppear()
         {
+
 			question_header.SetAlpha( 1 );
 			question_text.SetAlpha( 1 );
+
+			question_text.text = CurrentLevelData.Instance.CurrentQuestion.question;
 
 			question_header.enabled = true;
 			question_text.enabled   = true;
