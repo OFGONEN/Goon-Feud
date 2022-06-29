@@ -43,7 +43,7 @@ public class Goon : MonoBehaviour
 #region Properties
 	public int GoonID => goon_id;
 	public float GoonHealthRatio => ( float )goon_health / goon_health_start;
-	public Vector3 GoonPosition => goon_movement.Position;
+	public Vector3 GoonPosition => goon_movement.Position + Vector3.up * GameSettings.Instance.goon_torso_height;
 	#endregion
 
 	#region Unity API
