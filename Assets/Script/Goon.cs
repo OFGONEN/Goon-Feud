@@ -3,6 +3,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using FFStudio;
 using DG.Tweening;
 using Sirenix.OdinInspector;
@@ -19,6 +21,9 @@ public class Goon : MonoBehaviour
     [ BoxGroup( "Shared Variables" ), SerializeField ] SetGoon set_stage_goon;
     [ BoxGroup( "Shared Variables" ), SerializeField ] GameEvent event_player_killed;
 
+    [ BoxGroup( "UI Elements" ), SerializeField ] RectTransform goon_ui_healthBar_parent;
+    [ BoxGroup( "UI Elements" ), SerializeField ] Image goon_ui_healthBar_fill;
+
     [ BoxGroup( "Component" ), SerializeField ] Fire_UnityEvent goon_event_responder;
     [ BoxGroup( "Component" ), SerializeField ] Animator goon_animator;
     [ BoxGroup( "Component" ), SerializeField ] GoonMovement goon_movement;
@@ -28,13 +33,16 @@ public class Goon : MonoBehaviour
 	// Answer Cache
 	bool answer_cached = false;
 	int answer_value = 0;
+	int goon_health_start;
 
 	RecycledTween recycledTween = new RecycledTween();
+	RecycledTween recycledTween_ui = new RecycledTween();
 	UnityMessage onDoPath;
 #endregion
 
 #region Properties
 	public int GoonID => goon_id;
+	public float GoonHealthRatio => ( float )goon_health / goon_health_start;
 #endregion
 
 #region Unity API
@@ -42,6 +50,7 @@ public class Goon : MonoBehaviour
     {
 		EmptyDelegates();
 		recycledTween.Kill();
+		recycledTween_ui.Kill();
 
 		goon_line.StopDraw();
 	}
@@ -62,6 +71,9 @@ public class Goon : MonoBehaviour
 			onDoPath();
 
 			goon_line.StartDraw();
+
+			goon_health_start = goon_health;
+			goon_ui_healthBar_fill.fillAmount = 1;
 		}
 	}
 
@@ -91,12 +103,22 @@ public class Goon : MonoBehaviour
 		goon_animator.SetBool( "walking", true );
 		goon_movement.DoPathLastPoint( OnPathComplete );
 	}
+
+	public void OnQuestionAppear()
+	{
+		recycledTween_ui.Kill();
+
+		goon_ui_healthBar_fill.fillAmount = GoonHealthRatio;
+		goon_ui_healthBar_parent.gameObject.SetActive( true );
+	}
 #endregion
 
 #region Implementation
     void TakeDamage( int damage )
     {
 		goon_health -= damage;
+
+		recycledTween_ui.Recycle( goon_ui_healthBar_fill.DOFillAmount( GoonHealthRatio, GameSettings.Instance.ui_Entity_Scale_TweenDuration ), OnHealthBarFillComplete );
 
 		if( goon_health <= 0 )
 			Die();
@@ -123,6 +145,16 @@ public class Goon : MonoBehaviour
 
 		if( !goon_movement.CanPath )
 			KillPlayer();
+	}
+
+	void OnHealthBarFillComplete()
+	{
+		recycledTween_ui.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_ui_disable_delay, DisableGoonUI ) );
+	}
+
+	void DisableGoonUI()
+	{
+		goon_ui_healthBar_parent.gameObject.SetActive( false );
 	}
 
     void DoPath()
