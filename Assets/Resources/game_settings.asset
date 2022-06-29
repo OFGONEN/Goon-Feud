@@ -20,6 +20,7 @@ MonoBehaviour:
   goon_movement_lastPoint_line_distance: 0.35
   goon_hit_delay: 1
   goon_damage_delay: 1
+  question_transparent_value: 0.5
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 5

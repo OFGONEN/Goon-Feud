@@ -21,6 +21,9 @@ namespace FFStudio
         public float goon_movement_lastPoint_line_distance;
         public float goon_hit_delay;
         public float goon_damage_delay;
+    
+  [ Title( "Question UI" ) ]
+        public float question_transparent_value;
 
     // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;
