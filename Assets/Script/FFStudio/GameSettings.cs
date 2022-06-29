@@ -21,6 +21,8 @@ namespace FFStudio
         public float goon_movement_lastPoint_line_distance;
         public float goon_hit_delay;
         public float goon_damage_delay;
+        public float goon_ui_fill_duration;
+        public float goon_ui_disable_delay;
     
   [ Title( "Question UI" ) ]
         public float question_transparent_value;
