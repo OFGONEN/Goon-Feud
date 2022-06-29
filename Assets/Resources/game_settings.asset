@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: game_settings
   m_EditorClassIdentifier: 
   player_movement_move_speed: 1
-  player_movement_rotate_speed: 0.3
-  goon_movement_move_speed: 1
-  goon_movement_rotate_speed: 0.2
+  player_movement_rotate_speed: 135
+  goon_movement_move_speed: 1.5
+  goon_movement_rotate_speed: 135
   goon_movement_lastPoint_distance: 0.5
   goon_hit_delay: 1
   goon_damage_delay: 1
