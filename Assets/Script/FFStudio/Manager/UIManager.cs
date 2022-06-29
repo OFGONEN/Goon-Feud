@@ -4,19 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
+using Sirenix.OdinInspector;
 
 namespace FFStudio
 {
     public class UIManager : MonoBehaviour
     {
 #region Fields
-        [ Header( "Event Listeners" ) ]
+    [ Title( "Event Listeners" ) ]
         public EventListenerDelegateResponse levelLoadedResponse;
         public EventListenerDelegateResponse levelCompleteResponse;
         public EventListenerDelegateResponse levelFailResponse;
         public EventListenerDelegateResponse tapInputListener;
 
-        [ Header( "UI Elements" ) ]
+    [ Title( "UI Elements" ) ]
         public UI_Patrol_Scale level_loadingBar_Scale;
         public TextMeshProUGUI level_count_text;
         public TextMeshProUGUI level_information_text;
@@ -24,8 +25,12 @@ namespace FFStudio
         public Image loadingScreenImage;
         public Image foreGroundImage;
         public RectTransform tutorialObjects;
+    
+    [ Title( "Question Elements" ) ]
+        public Image question_header;
+        public TextMeshProUGUI question_text;
 
-        [ Header( "Fired Events" ) ]
+    [ Title( "Fired Events" ) ]
         public GameEvent levelRevealedEvent;
         public GameEvent loadNewLevelEvent;
         public GameEvent resetLevelEvent;
@@ -57,6 +62,35 @@ namespace FFStudio
             tapInputListener.response      = ExtensionMethods.EmptyMethod;
 
 			level_information_text.text = "Tap to Start";
+        }
+#endregion
+
+#region API
+        public void QuestionAppear()
+        {
+			question_header.SetAlpha( 1 );
+			question_text.SetAlpha( 1 );
+
+			question_header.enabled = true;
+			question_text.enabled   = true;
+		}
+
+        public void QuestionDisappear()
+        {
+			question_header.enabled = false;
+			question_text.enabled   = false;
+        }
+
+        public void QuestionTransparent()
+        {
+			question_header.SetAlpha( GameSettings.Instance.question_transparent_value );
+			question_text.SetAlpha( GameSettings.Instance.question_transparent_value );
+        }
+
+        public void QuestionOpaque()
+        {
+			question_header.SetAlpha( 1 );
+			question_text.SetAlpha( 1 );
         }
 #endregion
 
