@@ -28,9 +28,10 @@ public class GoonMovement : MovementPath
     public int PathIndex => path_index;
     public int PathCount => path_points.Count;
     public bool CanPath => path_index < path_points.Count;
-#endregion
+	public Vector3 Position => movement_transform.position;
+	#endregion
 
-#region Unity API
+	#region Unity API
 	private void OnDisable()
 	{
 		onPathComplete = ExtensionMethods.EmptyMethod;

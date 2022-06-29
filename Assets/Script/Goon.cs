@@ -43,10 +43,11 @@ public class Goon : MonoBehaviour
 #region Properties
 	public int GoonID => goon_id;
 	public float GoonHealthRatio => ( float )goon_health / goon_health_start;
-#endregion
+	public Vector3 GoonPosition => goon_movement.Position;
+	#endregion
 
-#region Unity API
-    private void OnDisable()
+	#region Unity API
+	private void OnDisable()
     {
 		EmptyDelegates();
 		recycledTween.Kill();
