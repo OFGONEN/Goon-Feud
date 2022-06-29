@@ -736,6 +736,8 @@ MonoBehaviour:
     gameEvent: {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
   tapInputListener:
     gameEvent: {fileID: 11400000, guid: 182cfa2632cfdba49bfaf3471d114d23, type: 2}
+  pool_UIHitPoint: {fileID: 11400000, guid: 19e1314b362cac54b9ba4e17ff82ed4c, type: 2}
+  parent_gamePlay: {fileID: 124199663488762607}
   level_loadingBar_Scale: {fileID: 4927453079223977394}
   level_count_text: {fileID: 124199664086749822}
   level_information_text: {fileID: 124199663512924951}

@@ -17,7 +17,11 @@ namespace FFStudio
         public EventListenerDelegateResponse levelFailResponse;
         public EventListenerDelegateResponse tapInputListener;
 
+    [ Title( "Question Elements" ) ]
+		[ SerializeField ] PoolUIHitPoint pool_UIHitPoint;
+
     [ Title( "UI Elements" ) ]
+        public RectTransform parent_gamePlay;
         public UI_Patrol_Scale level_loadingBar_Scale;
         public TextMeshProUGUI level_count_text;
         public TextMeshProUGUI level_information_text;
@@ -60,6 +64,8 @@ namespace FFStudio
             levelFailResponse.response     = LevelFailResponse;
             levelCompleteResponse.response = LevelCompleteResponse;
             tapInputListener.response      = ExtensionMethods.EmptyMethod;
+
+			pool_UIHitPoint.InitPool( parent_gamePlay, false );
 
 			level_information_text.text = "Tap to Start";
         }
