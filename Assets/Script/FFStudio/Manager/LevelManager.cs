@@ -20,6 +20,7 @@ namespace FFStudio
 
     [ Title( "Shared Variables" ) ]
         [ SerializeField ] SetGoon set_goon;
+        [ SerializeField ] PoolUIHitPoint pool_ui_hitPoint;
         [ SerializeField ] SharedIntNotifier notif_ui_question_index;
         [ SerializeField ] SharedIntNotifier notif_player_stage_index; 
         [ SerializeField ] SharedFloatNotifier levelProgress;
@@ -75,7 +76,10 @@ namespace FFStudio
                 if( allQuestionsAnswered )
 					KillPlayerWithGoon();
 				else
+                {
 				    event_ui_question_appear.Raise(); // There is question to answer
+					pool_ui_hitPoint.AttachToGoons();
+				}
             }
 		}
         

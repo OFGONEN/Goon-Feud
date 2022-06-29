@@ -55,6 +55,7 @@ MonoBehaviour:
   event_ui_question_appear: {fileID: 11400000, guid: 8a6809913a3f6414d9ae5ae282e8edf7, type: 2}
   event_ui_question_disappear: {fileID: 11400000, guid: af73c70365c4e4e66abfa40310dc4b42, type: 2}
   set_goon: {fileID: 11400000, guid: 5578a7f0e79784b73aedbf92fe368964, type: 2}
+  pool_ui_hitPoint: {fileID: 11400000, guid: 19e1314b362cac54b9ba4e17ff82ed4c, type: 2}
   notif_ui_question_index: {fileID: 11400000, guid: 27eb631d0b4bf4674a46cda7ae2d9b8f, type: 2}
   notif_player_stage_index: {fileID: 11400000, guid: 0bf0b38867284eb4e8b5a38c9d75ef0a, type: 2}
   levelProgress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}
