@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   set_path: {fileID: 11400000, guid: 9804880032b2a2742879ecb704abcb55, type: 2}
   movement_transform: {fileID: 590542679808091765}
+  notif_level_progress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}
 --- !u!114 &1128170878104815751
 MonoBehaviour:
   m_ObjectHideFlags: 0
