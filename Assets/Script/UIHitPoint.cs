@@ -37,6 +37,30 @@ public class UIHitPoint : MonoBehaviour
 		camera_main = ( notif_camera_transform.SharedValue as Transform ).GetComponent< Camera >();
 		transform.position = camera_main.WorldToScreenPoint( goon_current.GoonPosition );
 	}
+
+	public void OnSelected()
+	{
+		ui_image.color = GameSettings.Instance.hitpoint_color_selected;
+	}
+
+	public void OnDefault()
+	{
+		ui_image.color = GameSettings.Instance.hitpoint_color_default;
+	}
+
+	public void OnAnswerCache( int value )
+	{
+		ui_image.enabled = false;
+		goon_current.CacheAnswer( value );
+	}
+
+	public void OnAnswerClear()
+	{
+		goon_current.ClearAnswer();
+
+		ui_image.color = GameSettings.Instance.hitpoint_color_default;
+		ui_image.enabled = true;
+	}
 #endregion
 
 #region Implementation

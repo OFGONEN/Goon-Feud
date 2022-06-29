@@ -17,7 +17,7 @@ namespace FFStudio
         public EventListenerDelegateResponse levelFailResponse;
         public EventListenerDelegateResponse tapInputListener;
 
-    [ Title( "Question Elements" ) ]
+    [ Title( "Shared Variables" ) ]
 		[ SerializeField ] PoolUIHitPoint pool_UIHitPoint;
 
     [ Title( "UI Elements" ) ]
