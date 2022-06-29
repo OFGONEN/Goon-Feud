@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stackSize: 8
   pool_entity: {fileID: 5667801335718753216, guid: 8014a4c55191b5b4eae72da8792b083a, type: 3}
+  set_goon: {fileID: 11400000, guid: 5578a7f0e79784b73aedbf92fe368964, type: 2}
