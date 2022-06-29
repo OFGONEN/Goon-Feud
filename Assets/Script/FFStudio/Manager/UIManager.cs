@@ -18,7 +18,7 @@ namespace FFStudio
         public EventListenerDelegateResponse tapInputListener;
 
     [ Title( "Shared Variables" ) ]
-		[ SerializeField ] PoolUIHitPoint pool_UIHitPoint;
+		[ SerializeField ] PoolUIHitPoint pool_ui_hitPoint;
 
     [ Title( "UI Elements" ) ]
         public RectTransform parent_gamePlay;
@@ -65,7 +65,7 @@ namespace FFStudio
             levelCompleteResponse.response = LevelCompleteResponse;
             tapInputListener.response      = ExtensionMethods.EmptyMethod;
 
-			pool_UIHitPoint.InitPool( parent_gamePlay, false );
+			pool_ui_hitPoint.InitPool( parent_gamePlay, false );
 
 			level_information_text.text = "Tap to Start";
         }
