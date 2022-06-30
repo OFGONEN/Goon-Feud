@@ -20,6 +20,7 @@ public class Goon : MonoBehaviour
     [ BoxGroup( "Shared Variables" ), SerializeField ] SharedIntNotifier notif_player_stage_index;
     [ BoxGroup( "Shared Variables" ), SerializeField ] SetGoon set_stage_goon;
     [ BoxGroup( "Shared Variables" ), SerializeField ] GameEvent event_player_killed;
+    [ BoxGroup( "Shared Variables" ), SerializeField ] GameEvent event_question_disappear;
 
     [ BoxGroup( "UI Elements" ), SerializeField ] RectTransform goon_ui_healthBar_parent;
     [ BoxGroup( "UI Elements" ), SerializeField ] Image goon_ui_healthBar_fill;
@@ -174,7 +175,13 @@ public class Goon : MonoBehaviour
     void KillPlayer()
     {
 		goon_animator.SetTrigger( "attack" );
-		recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_hit_delay, event_player_killed.Raise ) );
+		recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_hit_delay, OnPlayerKilled ) );
+	}
+
+	void OnPlayerKilled()
+	{
+		event_player_killed.Raise();
+		event_question_disappear.Raise();
 	}
 
 	void EmptyDelegates()
