@@ -90,8 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3bb1284121fd14eb7be47b2290ae0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui_image: {fileID: 4979094862161837269}
   notif_camera_transform: {fileID: 11400000, guid: 488e798dd6f140e4a84fa7485b885dd3, type: 2}
+  notif_answer_submit_count: {fileID: 11400000, guid: 80a150b8f6d3b436cb39a4a618667dd9, type: 2}
+  ui_image: {fileID: 4979094862161837269}
   pool_ui_hitPoint: {fileID: 11400000, guid: 19e1314b362cac54b9ba4e17ff82ed4c, type: 2}
   set_ui_hitPoint: {fileID: 11400000, guid: e2e8767f9d1b0f9469f78865c1ffd268, type: 2}
 --- !u!114 &3221222226876844381

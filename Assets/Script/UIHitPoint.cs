@@ -10,8 +10,10 @@ using Sirenix.OdinInspector;
 public class UIHitPoint : MonoBehaviour
 {
 #region Fields
+    [ BoxGroup( "Shared Variables" ), SerializeField ] SharedReferenceNotifier notif_camera_transform;
+    [ BoxGroup( "Shared Variables" ), SerializeField ] SharedIntNotifier notif_answer_submit_count;
+
     [ BoxGroup( "Setup" ), SerializeField ] Image ui_image;
-    [ BoxGroup( "Setup" ), SerializeField ] SharedReferenceNotifier notif_camera_transform;
 	[ BoxGroup( "Setup" ), SerializeField ] PoolUIHitPoint pool_ui_hitPoint;
 	[ BoxGroup( "Setup" ), SerializeField ] SetUIHitPoint set_ui_hitPoint;
 
@@ -58,6 +60,8 @@ public class UIHitPoint : MonoBehaviour
 
 		ui_image.enabled = false;
 		goon_current.CacheAnswer( value );
+
+		notif_answer_submit_count.SharedValue++;
 	}
 
 	public void OnAnswerClear()
@@ -68,6 +72,8 @@ public class UIHitPoint : MonoBehaviour
 
 		ui_image.color = GameSettings.Instance.hitpoint_color_default;
 		ui_image.enabled = true;
+
+		notif_answer_submit_count.SharedValue--;
 	}
 
 	public void OnQuestionDisappear()
