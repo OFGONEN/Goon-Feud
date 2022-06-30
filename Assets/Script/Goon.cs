@@ -32,6 +32,9 @@ public class Goon : MonoBehaviour
     [ BoxGroup( "Component" ), SerializeField ] GoonLine goon_line;
     [ BoxGroup( "Component" ), SerializeField ] SkinnedMeshRenderer goon_renderer;
 
+    [ BoxGroup( "Particle" ), SerializeField ] ParticleSystem pfx_goon_damage;
+    [ BoxGroup( "Particle" ), SerializeField ] ParticleSystem pfx_goon_death;
+
 	// Answer Cache
 	bool answer_cached = false;
 	int answer_value = 0;
@@ -133,7 +136,10 @@ public class Goon : MonoBehaviour
 		if( goon_health <= 0 )
 			Die();
 		else
+		{
 			goon_animator.SetTrigger( "hurt" );
+			pfx_goon_damage.Play();
+		}
 
 		pool_ui_popUpText.GetEntity().Spawn( GoonPosition + goon_movement.Forward, "-" + damage, 1, GameSettings.Instance.answer_popUp_color );
 	}
@@ -149,6 +155,8 @@ public class Goon : MonoBehaviour
 		set_stage_goon.RemoveDictionary( goon_id );
 		goon_animator.SetTrigger( "die" );
 		goon_line.StopDraw();
+
+		pfx_goon_death.Play();
 	}
 
     void OnPathComplete()
