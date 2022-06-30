@@ -35,6 +35,7 @@ namespace FFStudio
 			Vibration.Init();
 
 			pool_UIPopUpText.InitPool( transform, false );
+
 			onAwakeEvent.Invoke();
 
 			// Configure Shapes

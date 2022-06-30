@@ -5,6 +5,7 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 namespace FFStudio
 {
@@ -374,6 +375,14 @@ namespace FFStudio
 			newColor.a = alpha;
 
 			image.color = newColor;
+		}
+
+		public static void SetAlpha( this TextMeshProUGUI text, float alpha )
+		{
+			Color newColor = text.color;
+			newColor.a = alpha;
+
+			text.color = newColor;
 		}
 
 		public static float RoundTo( this float number, float step )

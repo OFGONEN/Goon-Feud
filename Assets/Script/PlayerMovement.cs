@@ -12,12 +12,15 @@ public class PlayerMovement : MonoBehaviour
 #region Fields
     [ BoxGroup( "Setup" ), SerializeField ] SetPath set_path;
     [ BoxGroup( "Setup" ), SerializeField ] Transform movement_transform;
+    [ BoxGroup( "Setup" ), SerializeField ] SharedFloatNotifier notif_level_progress;
 
 	[ ShowInInspector, ReadOnly ] int path_point_index;
 
 	List< Transform > path_points = new List< Transform >( 64 );
     RecycledSequence recycledSequence = new RecycledSequence();
     UnityMessage onPathComplete;
+
+	int path_index;
 
     // We can achive steping like movement by placing points in a certain way
 #endregion
@@ -38,8 +41,9 @@ public class PlayerMovement : MonoBehaviour
     {
 		recycledSequence.Kill();
 
+		path_index       = index;
 		path_point_index = 0;
-		onPathComplete = pathComplete;
+		onPathComplete   = pathComplete;
 
 		PopulatePathPoints( index );
 		DoPath();
@@ -73,7 +77,13 @@ public class PlayerMovement : MonoBehaviour
 			rotationDuration )
 				.SetEase( Ease.Linear ) );
 
+		sequence.OnUpdate( OnPathSequenceUpdate );
 		sequence.OnComplete( OnPathSequenceComplete );
+	}
+
+	void OnPathSequenceUpdate()
+	{
+		notif_level_progress.SharedValue = Mathf.Lerp( path_index, path_index + 1, recycledSequence.Sequence.ElapsedPercentage() ) / set_path.itemDictionary.Count;
 	}
 
     void OnPathSequenceComplete()

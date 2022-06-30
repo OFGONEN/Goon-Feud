@@ -3,6 +3,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using FFStudio;
 using DG.Tweening;
 using Sirenix.OdinInspector;
@@ -18,6 +20,10 @@ public class Goon : MonoBehaviour
     [ BoxGroup( "Shared Variables" ), SerializeField ] SharedIntNotifier notif_player_stage_index;
     [ BoxGroup( "Shared Variables" ), SerializeField ] SetGoon set_stage_goon;
     [ BoxGroup( "Shared Variables" ), SerializeField ] GameEvent event_player_killed;
+    [ BoxGroup( "Shared Variables" ), SerializeField ] GameEvent event_question_disappear;
+
+    [ BoxGroup( "UI Elements" ), SerializeField ] RectTransform goon_ui_healthBar_parent;
+    [ BoxGroup( "UI Elements" ), SerializeField ] Image goon_ui_healthBar_fill;
 
     [ BoxGroup( "Component" ), SerializeField ] Fire_UnityEvent goon_event_responder;
     [ BoxGroup( "Component" ), SerializeField ] Animator goon_animator;
@@ -28,20 +34,25 @@ public class Goon : MonoBehaviour
 	// Answer Cache
 	bool answer_cached = false;
 	int answer_value = 0;
+	int goon_health_start;
 
 	RecycledTween recycledTween = new RecycledTween();
+	RecycledTween recycledTween_ui = new RecycledTween();
 	UnityMessage onDoPath;
 #endregion
 
 #region Properties
 	public int GoonID => goon_id;
-#endregion
+	public float GoonHealthRatio => ( float )goon_health / goon_health_start;
+	public Vector3 GoonPosition => goon_movement.Position + Vector3.up * GameSettings.Instance.goon_torso_height;
+	#endregion
 
-#region Unity API
-    private void OnDisable()
+	#region Unity API
+	private void OnDisable()
     {
 		EmptyDelegates();
 		recycledTween.Kill();
+		recycledTween_ui.Kill();
 
 		goon_line.StopDraw();
 	}
@@ -62,6 +73,9 @@ public class Goon : MonoBehaviour
 			onDoPath();
 
 			goon_line.StartDraw();
+
+			goon_health_start = goon_health;
+			goon_ui_healthBar_fill.fillAmount = 1;
 		}
 	}
 
@@ -75,6 +89,13 @@ public class Goon : MonoBehaviour
 	{
 		answer_cached = true;
 		answer_value  = value;
+	}
+
+	[ Button() ]
+	public void ClearAnswer()
+	{
+		answer_cached = false;
+		answer_value  = 0;
 	}
 
 	public void TakeDamge()
@@ -91,12 +112,22 @@ public class Goon : MonoBehaviour
 		goon_animator.SetBool( "walking", true );
 		goon_movement.DoPathLastPoint( OnPathComplete );
 	}
+
+	public void OnQuestionAppear()
+	{
+		recycledTween_ui.Kill();
+
+		goon_ui_healthBar_fill.fillAmount = GoonHealthRatio;
+		goon_ui_healthBar_parent.gameObject.SetActive( true );
+	}
 #endregion
 
 #region Implementation
     void TakeDamage( int damage )
     {
 		goon_health -= damage;
+
+		recycledTween_ui.Recycle( goon_ui_healthBar_fill.DOFillAmount( GoonHealthRatio, GameSettings.Instance.ui_Entity_Scale_TweenDuration ), OnHealthBarFillComplete );
 
 		if( goon_health <= 0 )
 			Die();
@@ -125,6 +156,16 @@ public class Goon : MonoBehaviour
 			KillPlayer();
 	}
 
+	void OnHealthBarFillComplete()
+	{
+		recycledTween_ui.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_ui_disable_delay, DisableGoonUI ) );
+	}
+
+	void DisableGoonUI()
+	{
+		goon_ui_healthBar_parent.gameObject.SetActive( false );
+	}
+
     void DoPath()
     {
 		goon_animator.SetBool( "walking", true );
@@ -134,7 +175,13 @@ public class Goon : MonoBehaviour
     void KillPlayer()
     {
 		goon_animator.SetTrigger( "attack" );
-		recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_hit_delay, event_player_killed.Raise ) );
+		recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_hit_delay, OnPlayerKilled ) );
+	}
+
+	void OnPlayerKilled()
+	{
+		event_player_killed.Raise();
+		event_question_disappear.Raise();
 	}
 
 	void EmptyDelegates()
