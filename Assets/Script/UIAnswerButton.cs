@@ -20,8 +20,10 @@ public class UIAnswerButton : MonoBehaviour
 
     AnswerData answer_data;
     Vector3 ui_image_button_position;
+    Vector3 ui_image_button_velocity;
 
     UnityMessage onFingerUp;
+    UnityMessage onUpdate;
 #endregion
 
 #region Properties
@@ -31,11 +33,17 @@ public class UIAnswerButton : MonoBehaviour
     private void Awake()
     {
 		onFingerUp = ExtensionMethods.EmptyMethod;
+		onUpdate   = ExtensionMethods.EmptyMethod;
 	}
 
     private void Start()
     {
 		ui_image_button_position = ui_image_button.rectTransform.position;
+	}
+
+    private void Update()
+    {
+		onUpdate();
 	}
 #endregion
 
@@ -75,8 +83,12 @@ public class UIAnswerButton : MonoBehaviour
 
     public void OnButtonClick()
     {
-        FFLogger.Log( "On Click", gameObject );
+		ui_image_button_velocity = Vector3.zero;
+
 		onFingerUp = FingerUp;
+		onUpdate   = OnUpdate;
+
+        // Since event_quesiton_transparent event is called on a answer button click
 		AnswerOpaque();
 	}
 
@@ -89,9 +101,19 @@ public class UIAnswerButton : MonoBehaviour
 #region Implementation
     void FingerUp()
     {
+		onUpdate   = ExtensionMethods.EmptyMethod;
 		onFingerUp = ExtensionMethods.EmptyMethod;
-		FFLogger.Log( "On Finger Up", gameObject );
+
+		ui_image_button.rectTransform.position   = ui_image_button_position;
     }
+    
+    void OnUpdate()
+    {
+		var position = ui_image_button.transform.position;
+		var targetPosition = Input.mousePosition;
+
+		ui_image_button.transform.position = Vector3.SmoothDamp( position, targetPosition, ref ui_image_button_velocity, GameSettings.Instance.answer_drag_smoothTime );
+	}
 #endregion
 
 #region Editor Only
