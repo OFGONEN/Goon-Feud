@@ -26,6 +26,7 @@ MonoBehaviour:
   question_transparent_value: 0.5
   hitpoint_color_default: {r: 1, g: 1, b: 1, a: 1}
   hitpoint_color_selected: {r: 1, g: 1, b: 0, a: 1}
+  answer_transparent_value: 0
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 5

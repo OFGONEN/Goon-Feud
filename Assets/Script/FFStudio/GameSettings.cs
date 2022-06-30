@@ -30,6 +30,9 @@ namespace FFStudio
         public Color hitpoint_color_default;
         public Color hitpoint_color_selected;
 
+  [ Title( "Answer UI" ) ]
+        public float answer_transparent_value;
+
     // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;
         [ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_Components;
