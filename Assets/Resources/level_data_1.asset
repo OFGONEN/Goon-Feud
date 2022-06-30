@@ -47,3 +47,4 @@ MonoBehaviour:
         answer_value: 30
       - answer: Captain America
         answer_value: 40
+  stage_count: 2
