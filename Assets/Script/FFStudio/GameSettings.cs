@@ -32,7 +32,9 @@ namespace FFStudio
 
   [ Title( "Answer UI" ) ]
         public float answer_transparent_value;
+        public float answer_submit_scale;
         public float answer_drag_smoothTime;
+        [ LabelText( "Submit distance in percentage of the horizontal length" ) ] public float answer_submit_distance;
 
     // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
 		[ FoldoutGroup( "Remote Config" ) ] public bool useRemoteConfig_GameSettings;
