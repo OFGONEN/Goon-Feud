@@ -180,8 +180,8 @@ public class Goon : MonoBehaviour
 
 	void OnPlayerKilled()
 	{
-		event_player_killed.Raise();
 		event_question_disappear.Raise();
+		event_player_killed.Raise();
 	}
 
 	void EmptyDelegates()
