@@ -19,14 +19,20 @@ public class UIAnswerButton : MonoBehaviour
     [ BoxGroup( "UI Elements" ), SerializeField ] TextMeshProUGUI ui_text_button; // child game-object of ui_image_button
 
     AnswerData answer_data;
-
     Vector3 ui_image_button_position;
+
+    UnityMessage onFingerUp;
 #endregion
 
 #region Properties
 #endregion
 
 #region Unity API
+    private void Awake()
+    {
+		onFingerUp = ExtensionMethods.EmptyMethod;
+	}
+
     private void Start()
     {
 		ui_image_button_position = ui_image_button.rectTransform.position;
@@ -67,13 +73,25 @@ public class UIAnswerButton : MonoBehaviour
 		ui_text_button.SetAlpha( 1 );
     }
 
-    public void OnClick()
+    public void OnButtonClick()
     {
         FFLogger.Log( "On Click", gameObject );
+		onFingerUp = FingerUp;
+		AnswerOpaque();
+	}
+
+    public void OnFingerUp()
+    {
+		onFingerUp();
     }
 #endregion
 
 #region Implementation
+    void FingerUp()
+    {
+		onFingerUp = ExtensionMethods.EmptyMethod;
+		FFLogger.Log( "On Finger Up", gameObject );
+    }
 #endregion
 
 #region Editor Only
