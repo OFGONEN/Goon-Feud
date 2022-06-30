@@ -19,6 +19,7 @@ public class Goon : MonoBehaviour
 
     [ BoxGroup( "Shared Variables" ), SerializeField ] SharedIntNotifier notif_player_stage_index;
     [ BoxGroup( "Shared Variables" ), SerializeField ] SetGoon set_stage_goon;
+    [ BoxGroup( "Shared Variables" ), SerializeField ] Pool_UIPopUpText pool_ui_popUpText;
     [ BoxGroup( "Shared Variables" ), SerializeField ] GameEvent event_player_killed;
     [ BoxGroup( "Shared Variables" ), SerializeField ] GameEvent event_question_disappear;
 
@@ -133,6 +134,8 @@ public class Goon : MonoBehaviour
 			Die();
 		else
 			goon_animator.SetTrigger( "hurt" );
+
+		pool_ui_popUpText.GetEntity().Spawn( GoonPosition + goon_movement.Forward, "-" + damage, 1, GameSettings.Instance.answer_popUp_color );
 	}
 
     void Die()

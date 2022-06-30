@@ -29,6 +29,7 @@ public class GoonMovement : MovementPath
     public int PathCount => path_points.Count;
     public bool CanPath => path_index < path_points.Count;
 	public Vector3 Position => movement_transform.position;
+	public Vector3 Forward => movement_transform.forward;
 	#endregion
 
 	#region Unity API

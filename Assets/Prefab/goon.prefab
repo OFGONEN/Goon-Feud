@@ -58,6 +58,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: bdda2c53287614277be9291c66acbfa9, type: 2}
   notif_player_stage_index: {fileID: 11400000, guid: 0bf0b38867284eb4e8b5a38c9d75ef0a, type: 2}
   set_stage_goon: {fileID: 11400000, guid: 5578a7f0e79784b73aedbf92fe368964, type: 2}
+  pool_ui_popUpText: {fileID: 11400000, guid: eaaacbd90b1464ad2b2a3a962a8a84b2, type: 2}
   event_player_killed: {fileID: 11400000, guid: ad8a8d4e7c62845369759b6516e7fa69, type: 2}
   event_question_disappear: {fileID: 11400000, guid: af73c70365c4e4e66abfa40310dc4b42, type: 2}
   goon_ui_healthBar_parent: {fileID: 4185400956614269916}
