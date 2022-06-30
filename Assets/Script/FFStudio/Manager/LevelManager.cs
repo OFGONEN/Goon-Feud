@@ -93,6 +93,8 @@ namespace FFStudio
 
 				set_goon.TakeDamage(); // Damage all goons
 				recycledTween.Recycle( DOVirtual.DelayedCall( GameSettings.Instance.goon_damage_delay, ResolveStageState ) );
+
+				notif_ui_question_index.SharedValue++;
 			}
 		}
 
