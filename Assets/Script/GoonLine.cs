@@ -57,7 +57,7 @@ public class GoonLine : ImmediateModeShapeDrawer
 			{
 				var targetPosition = goon_movement.GetPathPoint( i );
 
-				Draw.Line( startPosition, targetPosition, 0.125f, LineEndCap.None, Color.white );
+				Draw.Line( startPosition.ConvertToLine(), targetPosition.ConvertToLine(), 0.125f, LineEndCap.None, Color.white );
 
 				startPosition = targetPosition;
 			}
@@ -66,7 +66,7 @@ public class GoonLine : ImmediateModeShapeDrawer
 			var direction    = ( lastPosition - startPosition ).normalized;
 			lastPosition -= direction * GameSettings.Instance.goon_movement_lastPoint_line_distance;
 
-			Draw.Line( startPosition, lastPosition, 0.125f, LineEndCap.None, Color.white );
+			Draw.Line( startPosition.ConvertToLine(), lastPosition.ConvertToLine(), 0.125f, LineEndCap.None, Color.white );
 		}
 	}
 #endregion

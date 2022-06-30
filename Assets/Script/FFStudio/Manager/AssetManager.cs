@@ -40,6 +40,9 @@ namespace FFStudio
 
 			// Configure Shapes
 			Draw.UseDashes = true;
+			Draw.LineGeometry = LineGeometry.Flat2D;
+			Draw.Matrix = transform.localToWorldMatrix;
+
 			var dashStyle  = Draw.DashStyle;
 
 			dashStyle.space   = DashSpace.Relative;

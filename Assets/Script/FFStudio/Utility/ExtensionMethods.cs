@@ -79,6 +79,11 @@ namespace FFStudio
 			return item;
 		}
 
+		public static Vector3 ConvertToLine( this Vector3 v3 )
+		{
+			return new Vector3( v3.x, v3.z, 0 );
+		}
+
 		public static Vector3 ConvertV3( this Vector2 v2 )
 		{
 			return new Vector3( v2.x, v2.y, 0 );
@@ -455,4 +460,3 @@ namespace FFStudio
 		}
 	}
 }
-
