@@ -34,6 +34,7 @@ namespace FFStudio
         public float answer_transparent_value;
         public float answer_submit_scale;
         public float answer_drag_smoothTime;
+		public Color answer_popUp_color;
         [ LabelText( "Submit distance in percentage of the horizontal length" ) ] public float answer_submit_distance;
 
     // Info: 3 groups below (coming from template project) are foldout by design: They should remain hidden.
@@ -86,6 +87,7 @@ namespace FFStudio
         {
 			hitpoint_color_default  = hitpoint_color_default.SetAlpha( 1 );
 			hitpoint_color_selected = hitpoint_color_selected.SetAlpha( 1 );
+			answer_popUp_color      = answer_popUp_color.SetAlpha( 1 );
 		}
 #endif
 #endregion

@@ -29,14 +29,15 @@ MonoBehaviour:
   answer_transparent_value: 0
   answer_submit_scale: 0.5
   answer_drag_smoothTime: 0.05
+  answer_popUp_color: {r: 0.7169812, g: 0, b: 0, a: 1}
   answer_submit_distance: 10
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
   maxLevelCount: 5
-  ui_Entity_Move_TweenDuration: 0.5
-  ui_Entity_Fade_TweenDuration: 0.5
-  ui_Entity_Scale_TweenDuration: 0.5
-  ui_Entity_FloatingMove_TweenDuration: 0.5
+  ui_Entity_Move_TweenDuration: 0.35
+  ui_Entity_Fade_TweenDuration: 0.35
+  ui_Entity_Scale_TweenDuration: 0.35
+  ui_Entity_FloatingMove_TweenDuration: 0.35
   ui_Entity_JoyStick_Gap: 50
   ui_PopUp_height: 1
   ui_PopUp_duration: 0.75
