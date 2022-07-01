@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea3c0b9fd00fd441b6cebc5941ee13b, type: 3}
+  m_Name: level_data_2
+  m_EditorClassIdentifier: 
+  scene_index: 2
+  scene_overrideAsActiveScene: 0
+  stage_data:
+  - stage_question:
+    - question: Name Something That Has to Be Licked
+      question_answer:
+      - answer: Envelope
+        answer_value: 20
+      - answer: Your Lips
+        answer_value: 15
+      - answer: Lollipop
+        answer_value: 37
+      - answer: Ice Cream
+        answer_value: 25
+    - question: Name a State That Has a Lot of Sports Teams
+      question_answer:
+      - answer: New York
+        answer_value: 31
+      - answer: California
+        answer_value: 29
+      - answer: Florida
+        answer_value: 25
+      - answer: Texas
+        answer_value: 25
+  - stage_question:
+    - question: "Name an Activity That\u2019s Easier to Do When It\u2019s Windy"
+      question_answer:
+      - answer: Air Dry Clothes
+        answer_value: 15
+      - answer: Sail
+        answer_value: 20
+      - answer: Fly a Kite
+        answer_value: 55
+      - answer: Surf
+        answer_value: 25
+    - question: Name a Term Used In a Game of Bowling
+      question_answer:
+      - answer: Turkey
+        answer_value: 10
+      - answer: Spare
+        answer_value: 35
+      - answer: Strike
+        answer_value: 60
+      - answer: Pin
+        answer_value: 15
+    - question: Name  a Type of Hoop
+      question_answer:
+      - answer: Basketball Hoop
+        answer_value: 30
+      - answer: Hula Hoop
+        answer_value: 60
+      - answer: Hoop Earrings
+        answer_value: 20
+      - answer: Hoop Skirt
+        answer_value: 10
+    - question: Name a Kind of Chip
+      question_answer:
+      - answer: Potato
+        answer_value: 55
+      - answer: Poker
+        answer_value: 25
+      - answer: Computer
+        answer_value: 15
+      - answer: Chocalate
+        answer_value: 35
+  - stage_question:
+    - question: Name Something People Decorate
+      question_answer:
+      - answer: A Cake
+        answer_value: 20
+      - answer: Christmas Tree
+        answer_value: 40
+      - answer: House
+        answer_value: 30
+      - answer: Easter Eggs
+        answer_value: 15
+    - question: Besides a Person, Name Something People Hug
+      question_answer:
+      - answer: Tree
+        answer_value: 10
+      - answer: Teddy Bear
+        answer_value: 18
+      - answer: Pillow
+        answer_value: 25
+      - answer: Pets
+        answer_value: 55
+    - question: Name Something That Gets Shredded
+      question_answer:
+      - answer: Lettuce
+        answer_value: 30
+      - answer: Documents
+        answer_value: 55
+      - answer: Cheese
+        answer_value: 35
+      - answer: Wheat
+        answer_value: 10
+  stage_count: 3

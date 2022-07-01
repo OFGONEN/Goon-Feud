@@ -5,6 +5,7 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 namespace FFStudio
 {
@@ -12,6 +13,7 @@ namespace FFStudio
 	{
 		//Static Variables
 		public static readonly string SAVE_PATH = Application.persistentDataPath + "/Saves/";
+		public static int ANSWER_COUNT = 4;
 
 		private static List< Transform > baseModelBones = new List< Transform >( 96 );
 		private static List< Transform > targetModelBones = new List< Transform >( 96 );
@@ -75,6 +77,11 @@ namespace FFStudio
 			list.RemoveAt( lastIndex );
 
 			return item;
+		}
+
+		public static Vector3 ConvertToLine( this Vector3 v3 )
+		{
+			return new Vector3( v3.x, v3.z, 0 );
 		}
 
 		public static Vector3 ConvertV3( this Vector2 v2 )
@@ -152,6 +159,11 @@ namespace FFStudio
 		}
 
 		public static void EmptyMethod()
+		{
+			/* Intentionally empty, by definition. */
+		}
+
+		public static void EmptyMethod( Camera cam )
 		{
 			/* Intentionally empty, by definition. */
 		}
@@ -370,6 +382,14 @@ namespace FFStudio
 			image.color = newColor;
 		}
 
+		public static void SetAlpha( this TextMeshProUGUI text, float alpha )
+		{
+			Color newColor = text.color;
+			newColor.a = alpha;
+
+			text.color = newColor;
+		}
+
 		public static float RoundTo( this float number, float step )
 		{
 			int quotient = Mathf.FloorToInt( number / step );
@@ -387,7 +407,12 @@ namespace FFStudio
 			return array[ Random.Range( 0, array.Length ) ];
 		}
 
-				public static float ReturnRandom( this Vector2 vector )
+		public static T ReturnLastIndex< T >( this T[] array )
+		{
+			return array[ array.Length - 1 ];
+		}
+
+		public static float ReturnRandom( this Vector2 vector )
 		{
 			return Random.Range( vector.x, vector.y );
 		}
@@ -428,6 +453,10 @@ namespace FFStudio
 		{
 			return Mathf.Clamp( value, vector.x, vector.y );
 		}
+
+		public static float ReturnDuration( this float velocity, float distance )
+		{
+			return Mathf.Abs( distance / velocity );
+		}
 	}
 }
-

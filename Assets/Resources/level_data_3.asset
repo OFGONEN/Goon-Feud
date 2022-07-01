@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea3c0b9fd00fd441b6cebc5941ee13b, type: 3}
+  m_Name: level_data_3
+  m_EditorClassIdentifier: 
+  scene_index: 3
+  scene_overrideAsActiveScene: 0
+  stage_data:
+  - stage_question:
+    - question: "Name a Place Where You\u2019re Supposed to Be Very Quiet"
+      question_answer:
+      - answer: Theater
+        answer_value: 20
+      - answer: Library
+        answer_value: 62
+      - answer: 'Bedroom '
+        answer_value: 10
+      - answer: Church
+        answer_value: 25
+    - question: "Name Something That\u2019s Hard To Do With Your Eyes Open"
+      question_answer:
+      - answer: Sneeze
+        answer_value: 27
+      - answer: Sleep
+        answer_value: 58
+      - answer: Kiss
+        answer_value: 20
+      - answer: Swim
+        answer_value: 25
+    - question: Name Something You Might Be Glad Only Comes Once a Year
+      question_answer:
+      - answer: Christmas
+        answer_value: 40
+      - answer: Birthday
+        answer_value: 30
+      - answer: Anniversary
+        answer_value: 25
+      - answer: Tax Season
+        answer_value: 20
+  - stage_question:
+    - question: Name Something Ducks Do
+      question_answer:
+      - answer: Fly
+        answer_value: 5
+      - answer: Waddle
+        answer_value: 15
+      - answer: Swim
+        answer_value: 30
+      - answer: Quack
+        answer_value: 65
+    - question: Besides Chicken, Name a Bird People Eat
+      question_answer:
+      - answer: Quail
+        answer_value: 10
+      - answer: Turkey
+        answer_value: 60
+      - answer: Duck
+        answer_value: 20
+      - answer: Pheasant
+        answer_value: 10
+    - question: Name Something People Win on Game Shows
+      question_answer:
+      - answer: A New Car
+        answer_value: 31
+      - answer: Money
+        answer_value: 62
+      - answer: Vacations
+        answer_value: 12
+      - answer: Refrigerators
+        answer_value: 3
+    - question: "Name a Reason a Person\u2019s Face May Turn Red"
+      question_answer:
+      - answer: Embarrassed
+        answer_value: 70
+      - answer: Angry
+        answer_value: 20
+      - answer: Sunburned
+        answer_value: 18
+      - answer: Bug Bites
+        answer_value: 12
+    - question: "Name a Ball That\u2019s Smaller Than a Baseball"
+      question_answer:
+      - answer: Gumball
+        answer_value: 5
+      - answer: Ping Pong Ball
+        answer_value: 26
+      - answer: Tennis Ball
+        answer_value: 23
+      - answer: Golf Ball
+        answer_value: 62
+  - stage_question:
+    - question: Name a Reason People Might Change Their Name
+      question_answer:
+      - answer: Got Married
+        answer_value: 64
+      - answer: Name is Lame
+        answer_value: 22
+      - answer: Witness Protection
+        answer_value: 4
+      - answer: Divorce
+        answer_value: 13
+    - question: Name Something Everyone Knows About Dragons
+      question_answer:
+      - answer: Big
+        answer_value: 12
+      - answer: Breathe Fire
+        answer_value: 61
+      - answer: Fly
+        answer_value: 24
+      - answer: Don't Exist
+        answer_value: 17
+    - question: Name an Activity Where a Person Might Come Up For Air
+      question_answer:
+      - answer: Bobbing Apples
+        answer_value: 7
+      - answer: Kissing
+        answer_value: 17
+      - answer: Snorkeling
+        answer_value: 32
+      - answer: Swimming
+        answer_value: 52
+  stage_count: 3

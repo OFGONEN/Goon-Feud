@@ -1,6 +1,7 @@
 ﻿/* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace FFStudio
 {
@@ -10,6 +11,10 @@ namespace FFStudio
 		public int currentLevel_Real;
 		public int currentLevel_Shown;
 		public LevelData levelData;
+
+    [ Title( "Question" ) ]
+        public SharedIntNotifier notif_player_stage_index;
+        public SharedIntNotifier notif_ui_question_index;
 
         private static CurrentLevelData instance;
 
@@ -27,10 +32,12 @@ namespace FFStudio
 
 			levelData = Resources.Load< LevelData >( "level_data_" + currentLevel_Real );
 		}
+
+		public Question CurrentQuestion => levelData.stage_data[ notif_player_stage_index.sharedValue ].stage_question[ notif_ui_question_index.sharedValue ];
 #endregion
 
 #region Implementation
-        static CurrentLevelData LoadInstance()
+		static CurrentLevelData LoadInstance()
 		{
 			if( instance == null )
 				instance = Resources.Load< CurrentLevelData >( "level_current" );

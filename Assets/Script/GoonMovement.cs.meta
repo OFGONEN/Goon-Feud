@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5b30fc8fa2938684090c7d0f100d0af3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - path_parent: {instanceID: 0}
+  - movement_transform: {instanceID: 0}
+  - notif_goon_path_count: {fileID: 11400000, guid: b31ba918ab7ee314aa9c70b713e9d8d3, type: 2}
+  - notif_player_transform: {fileID: 11400000, guid: a4ba5c817e23e8d42803096879734ac4, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9b52652f56b2b45bb4827f90e4ac04, type: 3}
   m_Name: level_current
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  currentConsecutiveLevel: 0
+  currentLevel_Real: 1
+  currentLevel_Shown: 1
   levelData: {fileID: 11400000, guid: 582207d256746cd4ca60f5e0f9343754, type: 2}
+  notif_player_stage_index: {fileID: 11400000, guid: 0bf0b38867284eb4e8b5a38c9d75ef0a, type: 2}
+  notif_ui_question_index: {fileID: 11400000, guid: 27eb631d0b4bf4674a46cda7ae2d9b8f, type: 2}

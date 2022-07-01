@@ -14,3 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene_index: 1
   scene_overrideAsActiveScene: 0
+  stage_data:
+  - stage_question:
+    - question: "What\u2019s Something You Keep in Your Car, Just in Case?"
+      question_answer:
+      - answer: Food
+        answer_value: 35
+      - answer: Money
+        answer_value: 35
+      - answer: Water
+        answer_value: 35
+      - answer: Spare Tire
+        answer_value: 35
+  - stage_question:
+    - question: Name Something You Find in a Breakfast Buffet
+      question_answer:
+      - answer: Cereal
+        answer_value: 20
+      - answer: Bacon
+        answer_value: 25
+      - answer: Coffee
+        answer_value: 20
+      - answer: Eggs
+        answer_value: 30
+    - question: "Name Marvel\u2019s Avengers"
+      question_answer:
+      - answer: Iron Man
+        answer_value: 35
+      - answer: Thor
+        answer_value: 30
+      - answer: The Hulk
+        answer_value: 30
+      - answer: Captain America
+        answer_value: 40
+  stage_count: 2

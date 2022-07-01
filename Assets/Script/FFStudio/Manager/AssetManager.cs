@@ -1,6 +1,7 @@
 /* Created by and for usage of FF Studios (2021). */
 using UnityEngine;
 using UnityEngine.Events;
+using Shapes;
 using Sirenix.OdinInspector;
 
 namespace FFStudio
@@ -34,7 +35,24 @@ namespace FFStudio
 			Vibration.Init();
 
 			pool_UIPopUpText.InitPool( transform, false );
+
 			onAwakeEvent.Invoke();
+
+			// Configure Shapes
+			Draw.UseDashes = true;
+			Draw.LineGeometry = LineGeometry.Flat2D;
+			Draw.Matrix = transform.localToWorldMatrix;
+
+			var dashStyle  = Draw.DashStyle;
+
+			dashStyle.space   = DashSpace.Relative;
+			dashStyle.size    = 2;
+			dashStyle.snap    = DashSnapping.Off;
+			dashStyle.spacing = 2;
+			dashStyle.offset  = 0;
+			dashStyle.type    = DashType.Basic;
+
+			Draw.DashStyle = dashStyle;
 		}
 
 		private void Start()

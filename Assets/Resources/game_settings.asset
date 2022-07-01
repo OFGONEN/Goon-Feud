@@ -12,13 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a385bd3b4416492409284c9a366cb52a, type: 3}
   m_Name: game_settings
   m_EditorClassIdentifier: 
+  player_movement_move_speed: 5
+  player_movement_rotate_speed: 135
+  goon_movement_move_speed: 4.5
+  goon_movement_rotate_speed: 135
+  goon_movement_lastPoint_distance: 2
+  goon_movement_lastPoint_line_distance: 0.35
+  goon_hit_delay: 1
+  goon_damage_delay: 1
+  goon_ui_fill_duration: 0.65
+  goon_ui_disable_delay: 0.75
+  goon_torso_height: 1
+  goon_line_color_start: {r: 0, g: 1, b: 0, a: 1}
+  goon_line_color_end: {r: 1, g: 0, b: 0, a: 1}
+  question_transparent_value: 0
+  hitpoint_color_default: {r: 1, g: 1, b: 1, a: 1}
+  hitpoint_color_selected: {r: 1, g: 1, b: 0, a: 1}
+  answer_transparent_value: 0
+  answer_submit_scale: 0.5
+  answer_drag_smoothTime: 0.05
+  answer_popUp_color: {r: 0.7169812, g: 0, b: 0, a: 1}
+  answer_submit_distance: 10
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
-  maxLevelCount: 1
-  ui_Entity_Move_TweenDuration: 0.5
-  ui_Entity_Fade_TweenDuration: 0.5
-  ui_Entity_Scale_TweenDuration: 0.5
-  ui_Entity_FloatingMove_TweenDuration: 0.5
+  maxLevelCount: 5
+  ui_Entity_Move_TweenDuration: 0.35
+  ui_Entity_Fade_TweenDuration: 0.35
+  ui_Entity_Scale_TweenDuration: 0.35
+  ui_Entity_FloatingMove_TweenDuration: 0.35
   ui_Entity_JoyStick_Gap: 50
   ui_PopUp_height: 1
   ui_PopUp_duration: 0.75

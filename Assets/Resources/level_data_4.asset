@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea3c0b9fd00fd441b6cebc5941ee13b, type: 3}
+  m_Name: level_data_4
+  m_EditorClassIdentifier: 
+  scene_index: 4
+  scene_overrideAsActiveScene: 0
+  stage_data:
+  - stage_question:
+    - question: Name Something You Love to Smell in the Morning
+      question_answer:
+      - answer: Coffee
+        answer_value: 47
+      - answer: Breakfast
+        answer_value: 43
+      - answer: Fresh Air
+        answer_value: 27
+      - answer: Bae's Cologne
+        answer_value: 14
+    - question: "Name a Creature People are Petrified of That Starts With an \u201CS\u201D"
+      question_answer:
+      - answer: Shark
+        answer_value: 17
+      - answer: Spider
+        answer_value: 31
+      - answer: Snake
+        answer_value: 62
+      - answer: Scorpion
+        answer_value: 7
+    - question: Name a House You Never Want to Be In
+      question_answer:
+      - answer: Haunted House
+        answer_value: 44
+      - answer: Jail House
+        answer_value: 26
+      - answer: Dog House
+        answer_value: 22
+      - answer: Outhouse
+        answer_value: 13
+    - question: Name Something Associated with Vampires
+      question_answer:
+      - answer: Twilight
+        answer_value: 47
+      - answer: Blood
+        answer_value: 24
+      - answer: Garlic
+        answer_value: 23
+      - answer: Dracula
+        answer_value: 21
+    - question: "Tell Me A Word That Rhymes with \u201CElection\u201D"
+      question_answer:
+      - answer: Collection
+        answer_value: 25
+      - answer: Erection
+        answer_value: 27
+      - answer: Selection
+        answer_value: 31
+      - answer: Perfection
+        answer_value: 33
+  - stage_question:
+    - question: Name An Occasion For Which You Might Wear Your Lucky Underwear
+      question_answer:
+      - answer: Hot Date
+        answer_value: 50
+      - answer: Casino
+        answer_value: 30
+      - answer: Job Interview
+        answer_value: 40
+      - answer: Exam
+        answer_value: 20
+    - question: Name a Professional Sport Where the Players Make a Lot of Money
+      question_answer:
+      - answer: Football
+        answer_value: 35
+      - answer: Baseball
+        answer_value: 33
+      - answer: Basketball
+        answer_value: 31
+      - answer: Tennis
+        answer_value: 11
+    - question: Name Something Snowmen Might Have Nightmares About
+      question_answer:
+      - answer: Sun
+        answer_value: 52
+      - answer: Peeing Dogs
+        answer_value: 24
+      - answer: Rain
+        answer_value: 22
+      - answer: Snowballs
+        answer_value: 17
+  - stage_question:
+    - question: Name a Common Candy Bar Component
+      question_answer:
+      - answer: Peanuts
+        answer_value: 30
+      - answer: Chocolate
+        answer_value: 35
+      - answer: Caramel
+        answer_value: 24
+      - answer: Coconut
+        answer_value: 17
+    - question: Name a Type of Insurance
+      question_answer:
+      - answer: Home
+        answer_value: 21
+      - answer: Dental
+        answer_value: 24
+      - answer: Health
+        answer_value: 29
+      - answer: Car
+        answer_value: 42
+    - question: Name Something You Would Buy After Getting Engaged
+      question_answer:
+      - answer: Dress
+        answer_value: 44
+      - answer: Ring
+        answer_value: 32
+      - answer: Champagne
+        answer_value: 22
+      - answer: Dinner
+        answer_value: 17
+  stage_count: 3
