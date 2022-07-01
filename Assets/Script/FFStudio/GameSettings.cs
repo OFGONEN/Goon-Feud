@@ -24,6 +24,8 @@ namespace FFStudio
         public float goon_ui_fill_duration;
         public float goon_ui_disable_delay;
         public float goon_torso_height;
+        public Color goon_line_color_start;
+        public Color goon_line_color_end;
     
   [ Title( "Question UI" ) ]
         public float question_transparent_value;
@@ -88,6 +90,8 @@ namespace FFStudio
 			hitpoint_color_default  = hitpoint_color_default.SetAlpha( 1 );
 			hitpoint_color_selected = hitpoint_color_selected.SetAlpha( 1 );
 			answer_popUp_color      = answer_popUp_color.SetAlpha( 1 );
+			goon_line_color_start   = goon_line_color_start.SetAlpha( 1 );
+			goon_line_color_end     = goon_line_color_end.SetAlpha( 1 );
 		}
 #endif
 #endregion
