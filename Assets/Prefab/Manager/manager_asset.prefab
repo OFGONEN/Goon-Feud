@@ -299,7 +299,7 @@ MonoBehaviour:
         - m_Target: {fileID: 11400000, guid: b31ba918ab7ee314aa9c70b713e9d8d3, type: 2}
           m_TargetAssemblyTypeName: FFStudio.SharedDataNotifier`1[[System.Int32,
             mscorlib
-          m_MethodName: set_SharedValue
+          m_MethodName: SetValue_DontNotify
           m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
