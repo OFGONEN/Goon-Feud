@@ -72,6 +72,7 @@ public class Goon : MonoBehaviour
     {
 		if( notif_player_stage_index.SharedValue == goon_stage_id )
 		{
+			goon_movement.OnStageStart();
 			onDoPath = DoPath;
 			set_stage_goon.AddDictionary( goon_id, this );
 			onDoPath();

@@ -156,6 +156,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 590542679808091765}
     m_Modifications:
+    - target: {fileID: 1300518366826579796, guid: b8ec10169afcd004a82679b550d86673, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 6756651430377535207, guid: b8ec10169afcd004a82679b550d86673, type: 3}
       propertyPath: m_Name
       value: gfx_player
