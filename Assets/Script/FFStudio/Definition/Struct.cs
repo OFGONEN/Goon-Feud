@@ -208,6 +208,7 @@ namespace FFStudio
 	{
 		public string answer;
 		public int answer_value;
+		public bool answer_best;
 	}
 
 	[ Serializable ]

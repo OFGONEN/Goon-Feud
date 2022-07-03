@@ -154,7 +154,7 @@ public class UIAnswerButton : MonoBehaviour
 
 			answer_cached = true;
 
-			ui_hitPoint_current.OnAnswerCache( answer_data.answer_value );
+			ui_hitPoint_current.OnAnswerCache( answer_data );
 		}
         else
 		    ui_image_button.rectTransform.position = ui_image_button_startPosition;

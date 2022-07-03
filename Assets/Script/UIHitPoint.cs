@@ -54,7 +54,7 @@ public class UIHitPoint : MonoBehaviour
 		ui_image.color = GameSettings.Instance.hitpoint_color_default;
 	}
 
-	public void OnAnswerCache( int value )
+	public void OnAnswerCache( AnswerData value )
 	{
 		set_ui_hitPoint.RemoveList( this );
 
