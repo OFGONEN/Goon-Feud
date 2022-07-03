@@ -20,132 +20,184 @@ MonoBehaviour:
       question_answer:
       - answer: Pull His Beard
         answer_value: 42
+        answer_best: 1
       - answer: Kick
         answer_value: 27
+        answer_best: 0
       - answer: Bite
         answer_value: 36
+        answer_best: 0
       - answer: Farts on Him
         answer_value: 26
+        answer_best: 0
     - question: Name a Country With a Large Population
       question_answer:
       - answer: Brazil
         answer_value: 14
+        answer_best: 0
       - answer: United States
         answer_value: 25
+        answer_best: 0
       - answer: India
         answer_value: 27
+        answer_best: 1
       - answer: China
         answer_value: 52
+        answer_best: 1
     - question: Name a Type of Building Where It Always Seems to Be Cold
       question_answer:
       - answer: Doctor Office
         answer_value: 44
+        answer_best: 1
       - answer: Work
         answer_value: 27
+        answer_best: 0
       - answer: Class Room
         answer_value: 24
+        answer_best: 0
       - answer: Hotel Room
         answer_value: 21
+        answer_best: 0
     - question: Name Something People Do to Their Armpits
       question_answer:
       - answer: Make Noise Fart
         answer_value: 17
+        answer_best: 0
       - answer: Wash Them
         answer_value: 23
+        answer_best: 0
       - answer: Put Deodorant
         answer_value: 25
+        answer_best: 0
       - answer: Shave
         answer_value: 62
+        answer_best: 1
   - stage_question:
     - question: Name an Animal a Snake Can Swallow Whole
       question_answer:
       - answer: Mouse
         answer_value: 70
+        answer_best: 1
       - answer: Crocodile
         answer_value: 15
+        answer_best: 0
       - answer: Rabbit
         answer_value: 13
+        answer_best: 0
       - answer: Pig
         answer_value: 4
+        answer_best: 0
     - question: What do you do when you first wake up?
       question_answer:
       - answer: Brush Teeth
         answer_value: 31
+        answer_best: 0
       - answer: Make Coffee
         answer_value: 29
+        answer_best: 0
       - answer: Check Phone
         answer_value: 32
+        answer_best: 1
       - answer: Take a Shower
         answer_value: 22
+        answer_best: 0
     - question: What is the most popular name for your pet dog?
       question_answer:
       - answer: Spot
         answer_value: 30
+        answer_best: 0
       - answer: Lucky
         answer_value: 35
+        answer_best: 1
       - answer: Buddy
         answer_value: 22
+        answer_best: 0
       - answer: Rex
         answer_value: 20
+        answer_best: 0
     - question: What is the best place for someone to study?
       question_answer:
       - answer: Coffee Shop
         answer_value: 13
+        answer_best: 0
       - answer: Bedroom
         answer_value: 25
+        answer_best: 0
       - answer: Classroom
         answer_value: 28
+        answer_best: 0
       - answer: Library
         answer_value: 34
+        answer_best: 1
     - question: What snacks do you usually eat at the movies?
       question_answer:
       - answer: Popcorn
         answer_value: 51
+        answer_best: 1
       - answer: Nachos
         answer_value: 23
+        answer_best: 0
       - answer: Chips
         answer_value: 21
+        answer_best: 0
       - answer: Candies
         answer_value: 8
+        answer_best: 0
   - stage_question:
     - question: Name a reason you would go to the park
       question_answer:
       - answer: Walk the Dog
         answer_value: 34
+        answer_best: 1
       - answer: Picnic
         answer_value: 34
+        answer_best: 0
       - answer: Run
         answer_value: 30
+        answer_best: 0
       - answer: Take the Kids
         answer_value: 17
+        answer_best: 0
     - question: What do people usually take with them to the beach?
       question_answer:
       - answer: Towel
         answer_value: 34
+        answer_best: 1
       - answer: Umbrella
         answer_value: 27
+        answer_best: 0
       - answer: Beach Ball
         answer_value: 20
+        answer_best: 0
       - answer: Hat
         answer_value: 27
+        answer_best: 0
     - question: Name something people wished their pets could do
       question_answer:
       - answer: Make No Noise
         answer_value: 17
+        answer_best: 0
       - answer: Help out with Costs
         answer_value: 22
+        answer_best: 0
       - answer: Use the Toilet
         answer_value: 37
+        answer_best: 1
       - answer: Talk
         answer_value: 45
+        answer_best: 0
     - question: What do kids usually hate to do?
       question_answer:
       - answer: Go to School
         answer_value: 31
+        answer_best: 0
       - answer: Chores
         answer_value: 33
+        answer_best: 1
       - answer: Eat Vegetables
         answer_value: 32
+        answer_best: 0
       - answer: Visit Relatives
         answer_value: 17
+        answer_best: 0
   stage_count: 3

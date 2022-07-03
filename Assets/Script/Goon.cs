@@ -38,6 +38,7 @@ public class Goon : MonoBehaviour
 	// Answer Cache
 	bool answer_cached = false;
 	int answer_value = 0;
+	bool answer_best = false;
 	int goon_health_start;
 
 	RecycledTween recycledTween = new RecycledTween();
@@ -90,10 +91,11 @@ public class Goon : MonoBehaviour
 	}
 
 	[ Button() ]
-	public void CacheAnswer( int value )
+	public void CacheAnswer( AnswerData value )
 	{
 		answer_cached = true;
-		answer_value  = value;
+		answer_value  = value.answer_value;
+		answer_best   = value.answer_best;
 	}
 
 	[ Button() ]
@@ -101,13 +103,14 @@ public class Goon : MonoBehaviour
 	{
 		answer_cached = false;
 		answer_value  = 0;
+		answer_best = false;
 	}
 
 	public void TakeDamge()
 	{
 		// Take damage if goon cached an answer
 		if( answer_cached )
-			TakeDamage( answer_value );
+			TakeDamage( answer_value, answer_best );
 
 		answer_cached = false;
 	}
@@ -128,7 +131,7 @@ public class Goon : MonoBehaviour
 #endregion
 
 #region Implementation
-    void TakeDamage( int damage )
+    void TakeDamage( int damage, bool bestAnswer )
     {
 		goon_health -= damage;
 
@@ -142,7 +145,7 @@ public class Goon : MonoBehaviour
 			pfx_goon_damage.Play();
 		}
 
-		pool_ui_popUpText.GetEntity().Spawn( GoonPosition + goon_movement.Forward, "-" + damage, 1, GameSettings.Instance.answer_popUp_color );
+		pool_ui_popUpText.GetEntity().Spawn( GoonPosition + goon_movement.Forward, "-" + damage + "\nBest Answer", 1, GameSettings.Instance.answer_popUp_color );
 	}
 
     void Die()
