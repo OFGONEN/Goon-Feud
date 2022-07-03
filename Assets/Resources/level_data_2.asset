@@ -20,92 +20,128 @@ MonoBehaviour:
       question_answer:
       - answer: Envelope
         answer_value: 20
+        answer_best: 0
       - answer: Your Lips
         answer_value: 15
+        answer_best: 0
       - answer: Lollipop
         answer_value: 37
+        answer_best: 1
       - answer: Ice Cream
         answer_value: 25
+        answer_best: 0
     - question: Name a State That Has a Lot of Sports Teams
       question_answer:
       - answer: New York
         answer_value: 31
+        answer_best: 1
       - answer: California
         answer_value: 29
+        answer_best: 0
       - answer: Florida
         answer_value: 25
+        answer_best: 0
       - answer: Texas
         answer_value: 25
+        answer_best: 0
   - stage_question:
     - question: "Name an Activity That\u2019s Easier to Do When It\u2019s Windy"
       question_answer:
       - answer: Air Dry Clothes
         answer_value: 15
+        answer_best: 0
       - answer: Sail
         answer_value: 20
+        answer_best: 0
       - answer: Fly a Kite
         answer_value: 55
+        answer_best: 1
       - answer: Surf
         answer_value: 25
+        answer_best: 0
     - question: Name a Term Used In a Game of Bowling
       question_answer:
       - answer: Turkey
         answer_value: 10
+        answer_best: 0
       - answer: Spare
         answer_value: 35
+        answer_best: 0
       - answer: Strike
         answer_value: 60
+        answer_best: 1
       - answer: Pin
         answer_value: 15
+        answer_best: 0
     - question: Name  a Type of Hoop
       question_answer:
       - answer: Basketball Hoop
         answer_value: 30
+        answer_best: 0
       - answer: Hula Hoop
         answer_value: 60
+        answer_best: 1
       - answer: Hoop Earrings
         answer_value: 20
+        answer_best: 0
       - answer: Hoop Skirt
         answer_value: 10
+        answer_best: 0
     - question: Name a Kind of Chip
       question_answer:
       - answer: Potato
         answer_value: 55
+        answer_best: 1
       - answer: Poker
         answer_value: 25
+        answer_best: 0
       - answer: Computer
         answer_value: 15
+        answer_best: 0
       - answer: Chocalate
         answer_value: 35
+        answer_best: 0
   - stage_question:
     - question: Name Something People Decorate
       question_answer:
       - answer: A Cake
         answer_value: 20
+        answer_best: 0
       - answer: Christmas Tree
         answer_value: 40
+        answer_best: 1
       - answer: House
         answer_value: 30
+        answer_best: 0
       - answer: Easter Eggs
         answer_value: 15
+        answer_best: 0
     - question: Besides a Person, Name Something People Hug
       question_answer:
       - answer: Tree
         answer_value: 10
+        answer_best: 0
       - answer: Teddy Bear
         answer_value: 18
+        answer_best: 0
       - answer: Pillow
         answer_value: 25
+        answer_best: 0
       - answer: Pets
         answer_value: 55
+        answer_best: 1
     - question: Name Something That Gets Shredded
       question_answer:
       - answer: Lettuce
         answer_value: 30
+        answer_best: 0
       - answer: Documents
         answer_value: 55
+        answer_best: 1
       - answer: Cheese
         answer_value: 35
+        answer_best: 0
       - answer: Wheat
         answer_value: 10
+        answer_best: 0
   stage_count: 3

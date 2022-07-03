@@ -20,31 +20,43 @@ MonoBehaviour:
       question_answer:
       - answer: Food
         answer_value: 35
+        answer_best: 0
       - answer: Money
         answer_value: 35
+        answer_best: 0
       - answer: Water
         answer_value: 35
+        answer_best: 0
       - answer: Spare Tire
         answer_value: 35
+        answer_best: 1
   - stage_question:
     - question: Name Something You Find in a Breakfast Buffet
       question_answer:
       - answer: Cereal
         answer_value: 20
+        answer_best: 0
       - answer: Bacon
         answer_value: 25
+        answer_best: 0
       - answer: Coffee
         answer_value: 20
+        answer_best: 0
       - answer: Eggs
         answer_value: 30
+        answer_best: 1
     - question: "Name Marvel\u2019s Avengers"
       question_answer:
       - answer: Iron Man
         answer_value: 35
+        answer_best: 0
       - answer: Thor
         answer_value: 30
+        answer_best: 0
       - answer: The Hulk
         answer_value: 30
+        answer_best: 0
       - answer: Captain America
         answer_value: 40
+        answer_best: 1
   stage_count: 2
