@@ -147,7 +147,7 @@ MonoBehaviour:
     - question: Name a reason you would go to the park
       question_answer:
       - answer: Walk the Dog
-        answer_value: 34
+        answer_value: 35
         answer_best: 1
       - answer: Picnic
         answer_value: 34
@@ -182,10 +182,10 @@ MonoBehaviour:
         answer_best: 0
       - answer: Use the Toilet
         answer_value: 37
-        answer_best: 1
+        answer_best: 0
       - answer: Talk
         answer_value: 45
-        answer_best: 0
+        answer_best: 1
     - question: What do kids usually hate to do?
       question_answer:
       - answer: Go to School
