@@ -145,7 +145,10 @@ public class Goon : MonoBehaviour
 			pfx_goon_damage.Play();
 		}
 
-		pool_ui_popUpText.GetEntity().Spawn( GoonPosition + goon_movement.Forward, "-" + damage + "\nBest Answer", 1, GameSettings.Instance.answer_popUp_color );
+		if( answer_best )
+			pool_ui_popUpText.GetEntity().Spawn( GoonPosition + goon_movement.Forward, "-" + damage + "\nBest Answer", 1, GameSettings.Instance.answer_popUp_color );
+		else
+			pool_ui_popUpText.GetEntity().Spawn( GoonPosition + goon_movement.Forward, "-" + damage, 1, GameSettings.Instance.answer_popUp_color );
 	}
 
     void Die()
